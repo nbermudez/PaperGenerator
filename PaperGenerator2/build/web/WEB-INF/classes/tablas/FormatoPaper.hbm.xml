@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-13-2012 06:37:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="tablas.FormatoPaper" table="formato_paper" catalog="papergeneratordb">
+        <composite-id name="id" class="tablas.FormatoPaperId">
+            <key-property name="idPaper" type="int">
+                <column name="id_paper" />
+            </key-property>
+            <key-property name="idTitulo" type="int">
+                <column name="id_titulo" />
+            </key-property>
+            <key-property name="idResumen" type="int">
+                <column name="id_resumen" />
+            </key-property>
+            <key-property name="idPalabrasClave" type="int">
+                <column name="id_palabras_clave" />
+            </key-property>
+            <key-property name="idIntroduccion" type="int">
+                <column name="id_introduccion" />
+            </key-property>
+            <key-property name="idRevisionLiteraria" type="int">
+                <column name="id_revision_literaria" />
+            </key-property>
+            <key-property name="idMetodologia" type="int">
+                <column name="id_metodologia" />
+            </key-property>
+            <key-property name="idResultados" type="int">
+                <column name="id_resultados" />
+            </key-property>
+            <key-property name="idAgradecimiento" type="int">
+                <column name="id_agradecimiento" />
+            </key-property>
+            <key-property name="idReferencias" type="int">
+                <column name="id_referencias" />
+            </key-property>
+            <key-property name="idConclusiones" type="int">
+                <column name="id_conclusiones" />
+            </key-property>
+            <key-property name="idAnexo" type="int">
+                <column name="id_anexo" />
+            </key-property>
+            <key-property name="idTabla" type="int">
+                <column name="id_tabla" />
+            </key-property>
+        </composite-id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

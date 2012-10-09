@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl id="messages"/>
+            <p:panel>
+                <p:graphicImage id="head_image" url="/resources/images/logo_unitec.png" width="400"/>
+                <p:panel style="background: none;">
+                    <h:outputText value="Solutio: Escribiendo" style="font-size: 32px;"/>
+                    <br/>
+                </p:panel>
+            </p:panel>
+            <p:menubar autoDisplay="false">  
+                <p:submenu label="Archivo" icon="ui-icon-document"> 
+                    <p:menuitem value="Guardar" actionListener="#{menuBean.save()}" icon="ui-icon-disk" update="messages"/>  
+                    <p:separator />  
+                    <p:menuitem value="Salir" action="index" />  
+                </p:submenu>  
+
+                <p:submenu label="Configurar Encabezado" icon="ui-icon-gear">
+                    <p:menuitem  value="Formato de Titulo" actionListener="#{menuBean.configTitulo()}" update="messages"/>
+                    <p:menuitem  value="Formato de Autores" actionListener="#{menuBean.configAutores()}" update="messages"/>
+                    <p:menuitem  value="Formato de Resumen" actionListener="#{menuBean.configResumen()}" update="messages"/>
+                    <p:menuitem  value="Formato de Palabras clave" actionListener="#{menuBean.configPalabrasClave()}" update="messages"/>
+                </p:submenu>
+
+                <p:submenu label="Configurar Cuerpo" icon="ui-icon-gear">
+                    <p:menuitem  value="Formato de Introducción" actionListener="#{menuBean.configIntroduccion()}" update="messages"/>
+                    <p:menuitem  value="Formato de Revisión Literaria" actionListener="#{menuBean.configRevisionLiteraria()}" update="messages"/>
+                    <p:menuitem  value="Formato de Resultados" actionListener="#{menuBean.configResultados()}" update="messages"/>
+                    <p:menuitem  value="Formato de Metodología" actionListener="#{menuBean.configMetodologia()}" update="messages"/>
+                    <p:menuitem  value="Formato de Conclusiones" actionListener="#{menuBean.configConclusiones()}" update="messages"/>
+                    <p:menuitem  value="Formato de Agradecimiento" actionListener="#{menuBean.configAgradecimientos()}" update="messages"/>
+                </p:submenu>
+
+            </p:menubar>
+            <p:dashboard model="#{dashboard.model}" >
+                <p:panel id="titulo" header="Titulo" toggleable="true" collapsed="true">
+                    
+                </p:panel>
+                <p:panel id="abstract" header="Abstract" toggleable="true" collapsed="true">
+
+                </p:panel>
+                <p:panel id="frases" header="Frases Clave" toggleable="true" collapsed="true">
+
+                </p:panel>
+                <p:panel id="intro" header="Introduccion" toggleable="true" collapsed="true">
+
+                </p:panel>
+            </p:dashboard>
+        </h:form>
+    </h:body>
+</html>
+

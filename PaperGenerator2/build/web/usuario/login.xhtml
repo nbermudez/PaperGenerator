@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <a href="../resources/css/common-style.css" type="text/css"/>
+    </h:head>
+    <h:body>
+        <p:panel id="main" style="border: 0px; background: none;">
+            <p:growl id="messagesLogin"/>
+            <h:panelGrid id="options" rendered="#{!(user.logged)}" columns="2" style="margin: 0 auto; margin-top: 110px; " 
+                         columnClasses="alignTop">
+                <p:column>
+                    <h:form>
+                        <p:panel header="Iniciar Sesión" rendered="#{!(user.logged)}">
+                            <h:panelGrid columns="2">
+                                <h:outputLabel  value="Correo:"/>
+                                <p:inputText value="#{user.user}" style="width: 166px;"/>
+                                <h:outputLabel  value="Contraseña:"/>
+                                <p:password value="#{user.pass}" style="width: 166px;"/>
+                                <p:lightBox iframe="true">  
+                                    <h:outputLink value="faces/usuario/registrarse.xhtml" title="Registro">  
+                                        <h:outputText value="Registrarse"/>  
+                                    </h:outputLink>  
+                                </p:lightBox>
+                                <br/>
+                                <p:commandButton ajax="false" value="Ingresar" action="#{user.validar()}" 
+                                                 update=":tabView:main,:formHeader,:tabView:messagesLogin"/>
+                            </h:panelGrid>
+                        </p:panel>
+                    </h:form>
+                </p:column>
+            </h:panelGrid>  
+
+            <p:panelGrid id="acciones" columns="3" rendered="#{user.logged}" 
+                         style="background: none; border: 0px; margin: 0 auto; margin-top: 110px;">
+                <h:outputLink value="faces/administrador/Configurar_Formato.xhtml" target="_blank">
+                    <p:graphicImage style="border: 0px; width: 150px;" value="/resources/images/thumbnails/4.jpg" width="150" />
+                </h:outputLink>
+                <br/>
+                <h:outputLink value="faces/usuario/escribiendo.xhtml" target="_blank">
+                    <p:graphicImage style="border: 0px; width: 150px;" value="/resources/images/thumbnails/7.jpg" width="150" />
+                </h:outputLink>
+            </p:panelGrid>
+        </p:panel>
+    </h:body>
+</html>
+

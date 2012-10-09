@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form style="margin-top: 110px; margin-left: 110px; margin-right: 110px;">
+            <p:growl id="messagesLogin"/>
+            <p:panel header="Registrarse">
+                <h:panelGrid columns="2">
+                    <h:outputLabel  value="Nombre:"/>
+                    <p:inputText requiredMessage="Nombre requerido" required="true" style="width: 166px;"/>
+                    <h:outputLabel  value="Apellidos:"/>
+                    <p:inputText requiredMessage="Apellido requerido" required="true" style="width: 166px;"/>
+                    <h:outputLabel  value="Correo:"/>
+                    <p:inputText requiredMessage="Correo requerido" required="true" style="width: 166px;"/>
+                    <h:outputLabel  value="Contraseña:"/>
+                    <p:password id="pw1" feedback="true" match="pw2" required="true" style="width: 166px;"
+                                validatorMessage="Contraseñas no concuerdan" 
+                                requiredMessage="Contraseña requerida"/>
+                    <h:outputLabel  value="Confirmar contraseña:"/>
+                    <p:password id="pw2" required="true" style="width: 166px;"
+                                requiredMessage="Debe confirmar su contraseña"/>
+
+
+                </h:panelGrid>
+                <br/>
+                <p:selectBooleanCheckbox id="check"/>
+                <p:outputLabel for="check" value="He leído y acepto los "/>
+                <a href="../../faces/resources/files/terms.pdf" target="_new" style="color:blue;">términos</a>
+                <br/>
+                <p:commandButton value="Registrarse" actionListener="#{registrar.registrarse()}" 
+                                 update="messagesLogin"/>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

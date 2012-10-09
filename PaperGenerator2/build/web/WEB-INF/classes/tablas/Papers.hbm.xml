@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-13-2012 06:37:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="tablas.Papers" table="papers" catalog="papergeneratordb">
+        <id name="idPaper" type="java.lang.Integer">
+            <column name="id_paper" />
+            <generator class="identity" />
+        </id>
+        <property name="titulo" type="string">
+            <column name="titulo" length="65535" />
+        </property>
+        <property name="resumen" type="string">
+            <column name="resumen" />
+        </property>
+        <property name="introduccion" type="string">
+            <column name="introduccion" />
+        </property>
+        <property name="fechaRecibido" type="timestamp">
+            <column name="fecha_recibido" length="19" />
+        </property>
+        <property name="metodologia" type="string">
+            <column name="metodologia" />
+        </property>
+        <property name="resultadosAnalisis" type="string">
+            <column name="resultados_analisis" />
+        </property>
+        <property name="conclusiones" type="string">
+            <column name="conclusiones" />
+        </property>
+        <property name="agradecimientos" type="string">
+            <column name="agradecimientos" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="eForm" style="height: 390px;">
+            <p:carousel value="#{ntree.volumenes}" itemStyle="width: 750px; height:395px;" 
+                        var="vol" rendered="#{ntree.visibleL1}" rows="1">
+                <p:column>
+                    <p:panelGrid columns="2" style="width: 100%; height: 100%">
+                        <p:graphicImage value="resources/images/thumbnails/#{vol.nombre}.jpg" width="200"/>
+
+                        <p:panel style="border: 0px;">
+                            <h1>
+                                Descripcion del paper aqui
+                            </h1>
+                            <p:commandButton value="Ver numeros" actionListener="#{ntree.verNumeros()}" update=":tabView:eForm">
+                                <f:setPropertyActionListener value="#{vol}" target="#{ntree.currentVol}"/>
+                            </p:commandButton>
+                        </p:panel>
+                    </p:panelGrid>
+                </p:column>
+            </p:carousel>
+
+            <p:carousel value="#{ntree.currentVol.numeros}" itemStyle="width: 750px; height:395px;" 
+                        var="num" rendered="#{ntree.visibleL2}" rows="1">
+                <p:column>
+                    <p:panelGrid columns="2" style="width: 100%; height: 100%">
+                        <p:graphicImage value="resources/images/thumbnails/#{ntree.currentVol.nombre}.jpg" width="150"/>
+                        <p:panel>
+                            <h3>
+                                <h:outputText value="#{num.nombre}"/>
+                            </h3>
+                        </p:panel>
+                    </p:panelGrid>
+                    <p:commandButton value="Ver papers" actionListener="#{ntree.verPapers()}" update=":tabView:eForm">
+                        <f:setPropertyActionListener value="#{num}" target="#{ntree.currentNum}" />
+                    </p:commandButton>
+                    <p:commandButton value="Atras" actionListener="#{ntree.verVolumenes()}" update=":tabView:eForm"/>
+                </p:column>
+            </p:carousel>
+
+            <p:carousel value="#{ntree.currentNum.papers}" var="e_paper" itemStyle="width:750px;height:395px;" 
+                        rows="1" rendered="#{ntree.visibleL3}">
+                <p:column>
+                    <p:panelGrid columns="2" style="width: 100%;height: 100%;">
+                        <p:graphicImage value="resources/images/thumbnails/#{e_paper.idPaper}.jpg" width="200"/>
+
+                        <p:panel style="border:0px; margin-top: 0px;">
+                            <h3>
+                                <h:outputText value="#{e_paper.titulo}"/>
+                            </h3>
+                            <h4>
+                                Abstract:
+                            </h4>
+                            <h:outputText style="font-size: smaller;" value="#{e_paper.resumen}"/>
+                            <br/>
+                            <p:commandButton ajax="false" onclick="this.form.target='_blank'"  icon="ui-icon-search" value="Ver completo" action="#{pdf.downloadPDF}">
+                                <f:setPropertyActionListener value="#{e_paper.titulo}" target="#{pdf.titulo}"/>
+                            </p:commandButton>
+                            <p:commandButton value="Atras" actionListener="#{ntree.verNumeros()}" update=":tabView:eForm"/>
+                        </p:panel>
+                    </p:panelGrid>
+                </p:column>
+
+            </p:carousel>
+        </h:form>
+    </h:body>
+</html>
+

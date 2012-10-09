@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="todo">
+
+            <p:accordionPanel style="height: 390px; background: none;" rendered="#{tree.visible1}">
+                <p:tab title="Volumen 1: 2012">
+                    <table>
+                        <tr>
+                            <td>
+                                <p:graphicImage style="border: 0px; margin-left: 3px;" value="/resources/images/thumbnails/4.jpg" height="260" />
+                            </td>
+                            <td>
+                                <p:scrollPanel mode="native" style="height: 260px; background: none; width: 890px;">
+                                    <p:growl id="messages"/>
+                                    <p:tree style="width: 850px; border: 0px; background: none;" id="tree"
+                                            value="#{tree.root}" var="doc" 
+                                            selection="#{tree.selected}" dynamic="true">  
+
+                                        <p:treeNode expandedIcon="ui-icon-folder-open"  
+                                                    collapsedIcon="ui-icon-folder-collapsed">  
+                                            <h:outputText value="#{doc}"/>  
+                                        </p:treeNode>  
+
+                                        <p:treeNode type="document">  
+                                            <span class="ui-button-icon-left ui-icon ui-icon-document"/>
+                                            <h:outputText value="#{doc}" />
+                                            <br/>
+                                            <p:commandButton value="Ver completo" ajax="false" onclick="this.form.target='_blank'" action="#{pdf.downloadPDF(doc)}"
+                                                             icon="ui-icon-search" />
+
+                                            <p:commandButton value="Ver abstract" onclick="this.form.target='_blank'" action="#{tree.mostrarAbstract(doc)}"
+                                                             icon="ui-icon-search" update=":tabView:todo"/>
+                                        </p:treeNode>  
+
+                                        <p:treeNode type="picture" icon="ui-icon-image">  
+                                            <h:outputText value="#{doc}" />  
+                                        </p:treeNode>  
+
+                                        <p:treeNode type="mp3" icon="ui-icon-video">  
+                                            <h:outputText value="#{doc}" />  
+                                        </p:treeNode>  
+                                    </p:tree>
+                                </p:scrollPanel>
+                            </td>
+                        </tr>
+                    </table>
+                </p:tab>
+                <p:tab title="Volumen 2: 2013">
+                    <h1>
+                        Próximamente...
+                    </h1>
+                </p:tab>
+            </p:accordionPanel>
+
+            <p:panel rendered="#{!tree.visible1}"  style="border: 0px;">
+                <p:commandButton icon="ui-icon-arrowthick-1-w" value="Atrás" actionListener="#{tree.atras()}" update=":tabView:todo"/>
+                <br/>
+                <br/>
+                <p:panelGrid columns="2" style="width: 100%;height: 100%; background: none;">
+
+                    <p:graphicImage value="resources/images/thumbnails/#{tree.paperActual.idPaper}.jpg" height="280"/>
+
+                    <p:panel style="border:0px; margin-top: 0px; background: none;">
+                        <h3>
+                            <h:outputText value="#{tree.paperActual.titulo}"/>
+                        </h3>
+                        <h4>
+                            Abstract:
+                        </h4>
+                        <h:outputText style="font-size: smaller;" value="#{tree.paperActual.resumen}"/>
+                        <br/>
+                        <p:commandButton ajax="false" onclick="this.form.target='_blank'"  icon="ui-icon-search" value="Ver completo" action="#{pdf.downloadPDF}">
+                            <f:setPropertyActionListener value="#{tree.paperActual.titulo}" target="#{pdf.titulo}"/>
+                        </p:commandButton>
+                    </p:panel>
+                </p:panelGrid>
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</html>
+

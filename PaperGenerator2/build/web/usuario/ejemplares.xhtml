@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title> Ejemplares </title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:carousel value="#{ejemplares.papers}" var="e_paper" itemStyle="width:750px;height:395px;" 
+                        rows="1">
+                <p:column>
+                    <p:panelGrid columns="2" style="width: 100%;height: 100%;">
+                        <p:graphicImage value="/resources/images/thumbnails/#{e_paper.idPaper}.jpg" width="200"/>
+
+                        <p:panel style="border:0px; margin-top: 0px;">
+                            <h3>
+                                <h:outputText value="#{e_paper.titulo}"/>
+                            </h3>
+                            <h4>
+                                Abstract:
+                            </h4>
+                            <h:outputText style="font-size: smaller;" value="#{e_paper.resumen}"/>
+                            <br/>
+                            <p:commandButton ajax="false" onclick="this.form.target='_blank'"  icon="ui-icon-search" value="Ver completo" action="#{pdf.downloadPDF}">
+                                <f:setPropertyActionListener value="#{e_paper.titulo}" target="#{pdf.titulo}"/>
+                            </p:commandButton>
+                        </p:panel>
+                    </p:panelGrid>
+                </p:column>
+
+            </p:carousel>
+        </h:form>
+    </h:body>
+</html>
+

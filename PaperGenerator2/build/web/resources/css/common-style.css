@@ -1,0 +1,53 @@
+#page{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+#header{
+	width: 100%;
+	height:120px;
+	border: 0px solid #000;
+}
+
+#content{
+	width: 100%;
+	height:495px;
+	margin-right:16px;
+	margin-bottom:16px;
+	border: 0px solid #000;
+}
+
+#footer{
+	width: 100%;
+	height:60px;
+	border: 0px solid #000;
+}
+
+#loggedBar{
+    text-align: right;
+}
+
+#headerImage{
+        width: 45%;
+}
+
+#centered{
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    
+}
+
+#insideTab{
+    
+    
+}
+
+.alignTop{
+    margin-left: 50px;
+    margin-right: 50px;
+    vertical-align: top;
+    margin-top: 50px;
+}

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+        <script type="text/javascript">
+            function mostrar(val){
+                if(val=='Manuel')
+                    mostrarManuel();
+                if(val=='Jared')
+                    mostrarJared();
+                if(val=='Jacobo')
+                    mostrarJacobo();
+                if(val=='Jose')
+                    mostrarJose();
+                    
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div id="header">
+                <ui:insert name="header" >
+                    <ui:include src="/templates/common/commonHeader.xhtml" />
+                </ui:insert>
+            </div>
+            <p:panel id="editorialF">
+                <table>
+                    <tr>
+                        <td width="300px;">
+                            <h1>
+                                Grupo Editorial
+                            </h1>
+                            <h2>
+                                Director
+                            </h2>
+                            <h3 onmouseover="mostrar('Jacobo');" onmouseout="hideBio();">
+                                Juan Jacobo Paredes Heller, Ph.D.                     
+                            </h3>
+                            <p:remoteCommand async="true" name="mostrarJacobo" actionListener="#{app.setBioInfo('Jacobo')}"
+                                             update="editorialF"/>
+                            <a href="mailto:jacobo.paredes.heller@unitec.edu" >
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <span class="ui-button-icon-left ui-icon ui-icon-mail-closed"></span>
+                                        </td>
+                                        <td>
+                                            <span >jacobo.paredes.heller@unitec.edu</span>
+                                        </td>
+                                    </tr>
+                                </table>                       
+
+                            </a>
+                            <br/>
+                            <h4 onmouseover="mostrar('Jose');" onmouseout="hideBio();">
+                                José Arnoldo Sermeño Lima, Ph.D. 
+                            </h4>
+                            <p:remoteCommand async="true" name="mostrarJose" actionListener="#{app.setBioInfo('Jose')}"
+                                             update="editorialF"/>
+                            <a href="mailto:josearnoldo.sermeno@unitec.edu" >
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <span class="ui-button-icon-left ui-icon ui-icon-mail-closed"></span>
+                                        </td>
+                                        <td>
+                                            <span >josearnoldo.sermeno@unitec.edu</span>
+                                        </td>
+                                    </tr>
+                                </table>                       
+
+                            </a>
+                            <h4 onmouseover="mostrar('Jared');" onmouseout="hideBio();">
+                                Jared R. Ocampo, M. Sc. 
+                            </h4>
+                            <p:remoteCommand async="true" name="mostrarJared" actionListener="#{app.setBioInfo('Jared')}"
+                                             update="editorialF"/>
+                            <a href="mailto:jared.ocampo@unitec.edu" >
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <span class="ui-button-icon-left ui-icon ui-icon-mail-closed"></span>
+                                        </td>
+                                        <td>
+                                            <span >jared.ocampo@unitec.edu</span>
+                                        </td>
+                                    </tr>
+                                </table>                       
+
+                            </a>
+                            <h4 onmouseover="mostrar('Manuel');" onmouseout="hideBio();">
+                                Manuel Gómez Solorzano, M. Sc.
+                            </h4>
+
+                            <p:remoteCommand async="true" name="mostrarManuel" actionListener="#{app.setBioInfo('Manuel')}"
+                                             update="editorialF"/>
+                            <p:remoteCommand async="true" name="hideBio" actionListener="#{app.setBioVisible(false)}"
+                                             update="editorialF"/>
+                            <a href="mailto:mgomez@unitec.edu">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <span class="ui-button-icon-left ui-icon ui-icon-mail-closed"></span>
+                                        </td>
+                                        <td>
+                                            <span >mgomez@unitec.edu</span>
+                                        </td>
+                                    </tr>
+                                </table>                       
+
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <p:panelGrid columns="2" id="bio" rendered="#{app.bioVisible}"
+                                         style="margin-left: 200px;">
+                                <p:graphicImage style="border: 0px; width: 250px;" value="/resources/images/thumbnails/3.jpg" width="150" />
+                                <h:outputText value="#{app.nombre}"/>
+                            </p:panelGrid>
+                        </td>
+                    </tr>
+                </table>
+
+            </p:panel>
+
+        </h:form>
+    </h:body>
+</html>
+

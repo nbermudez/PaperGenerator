@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f ="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:form>
+        <p:growl id="messages"/>
+        <p:panel>
+            <p:graphicImage id="head_image" url="/resources/images/logo_unitec.png" width="400"/>
+            <p:panel style="background: none;">
+                <h:outputText value="Solutio: Configuración de Formato " style="font-size: 32px;"/>
+                <br/>
+                <h:outputText rendered="#{menuBean.configBean.render_seccion_actual}" value="Configurando: #{menuBean.configBean.currentSeccion}" style="font-size: 14px;"/>
+            </p:panel>
+        </p:panel>
+        <p:menubar autoDisplay="false">  
+            <p:submenu label="Archivo" icon="ui-icon-document"> 
+                <p:menuitem value="Guardar" actionListener="#{menuBean.save()}" icon="ui-icon-disk" update="messages"/>  
+                <p:separator />  
+                <p:menuitem value="Salir" action="index" />  
+            </p:submenu>  
+            <p:submenu label="Configurar Encabezado" icon="ui-icon-gear">
+                <p:menuitem  value="Formato de Titulo" actionListener="#{menuBean.configTitulo()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Autores" actionListener="#{menuBean.configAutores()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Resumen" actionListener="#{menuBean.configResumen()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Palabras clave" actionListener="#{menuBean.configPalabrasClave()}" update="layout,messages"/>
+            </p:submenu>
+
+            <p:submenu label="Configurar Cuerpo" icon="ui-icon-gear">
+                <p:menuitem  value="Formato de Introducción" actionListener="#{menuBean.configIntroduccion()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Revisión Literaria" actionListener="#{menuBean.configRevisionLiteraria()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Resultados" actionListener="#{menuBean.configResultados()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Metodología" actionListener="#{menuBean.configMetodologia()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Conclusiones" actionListener="#{menuBean.configConclusiones()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Agradecimiento" actionListener="#{menuBean.configAgradecimientos()}" update="layout,messages"/>
+            </p:submenu>
+
+            <p:submenu label="Configurar Otras" icon="ui-icon-gear">
+                <p:menuitem  value="Formato de Anexos" actionListener="#{menuBean.configAnexo()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Referencias" actionListener="#{menuBean.configReferencia()}" update="layout,messages"/>
+                <p:menuitem  value="Formato de Imagenes" actionListener="#{menuBean.configImagenes()}" update="layout,messages"/>                    
+                <p:submenu label="Formato de Subtitulos" >
+                    <p:menuitem  value="Subtitulo de Nivel 1" actionListener="#{menuBean.configSubtituloN1()}" update="layout,messages"/>
+                    <p:menuitem  value="Subtitulo de Nivel 2" actionListener="#{menuBean.configSubtituloN2()}" update="layout,messages"/>
+                    <p:menuitem  value="Subtitulo de Nivel 3" actionListener="#{menuBean.configSubtituloN3()}" update="layout,messages"/>
+                </p:submenu>
+                <p:submenu label="Formato de Tablas">
+                    <p:menuitem  value="Tablas a una columna" actionListener="#{menuBean.configTablaC1()}" update="layout,messages"/>
+                    <p:menuitem  value="Tablas a dos columnas" actionListener="#{menuBean.configTablaC2()}" update="layout,messages"/>
+                </p:submenu>
+
+            </p:submenu>
+        </p:menubar>
+        <p:layout id="layout" expandTitle="Configuracion de la seccion" style="height: 450px;">
+
+            <p:layoutUnit id="LUnit1" header="Sample" position="center" style="height: 450px;">
+
+                <p:editor  controls="bold italic underline | font size style | color highlight removeformat | undo redo | cut copy paste pastetext"
+                           width="867" required="false" requiredMessage="Debe definir el formato de la sección"/>
+
+            </p:layoutUnit>
+            <p:layoutUnit id="LUnit2" header="Configuraciones" position="west" collapsible="true" >
+                <table>
+                    <tr>
+                        <td>
+                            <p:outputLabel for="min_palabras" value="Mínimo de Palabras:" rendered="#{menuBean.configBean.render_min_palabras}"/>
+                        </td>
+                        <td>
+                            <p:spinner id="min_palabras" required="true" rendered="#{menuBean.configBean.render_min_palabras}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel for="max_palabras" value="Máximo de Palabras:" rendered="#{menuBean.configBean.render_max_palabras}"/>
+                        </td>
+                        <td>
+                            <p:spinner id="max_palabras" required="true" rendered="#{menuBean.configBean.render_max_palabras}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel for="min_autores" value="Mínimo de Autores:" rendered="#{menuBean.configBean.render_minimo_autores}"/>
+                        </td>
+                        <td>
+                            <p:spinner id="min_autores" required="true" rendered="#{menuBean.configBean.render_minimo_autores}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel for="max_autores" value="Máximo de Autores:" rendered="#{menuBean.configBean.render_maximo_autores}"/>
+                        </td>
+                        <td>
+                            <p:spinner id="max_autores" required="true" rendered="#{menuBean.configBean.render_maximo_autores}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel for="columnas_seccion" value="Columnas Sección:" rendered="#{menuBean.configBean.render_columnas_seccion}"/>
+                        </td>
+                        <td>
+                            <p:spinner id="columnas_seccion" required="true" rendered="#{menuBean.configBean.render_columnas_seccion}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel for="opcional" value="Opcional:" rendered="#{menuBean.configBean.render_opcional}"/>
+                        </td>
+                        <td>
+                            <p:selectBooleanCheckbox id="opcional" required="true" rendered="#{menuBean.configBean.render_opcional}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel for="enumerables" value="Enumerables:" rendered="#{menuBean.configBean.render_enumerable}"/>
+                        </td>
+                        <td>
+                            <p:selectBooleanCheckbox id="enumerables" required="true" rendered="#{menuBean.configBean.render_enumerable}"/>
+                        </td>
+                    </tr>
+                </table>
+                <p:separator/>
+
+                <p:panel header="Requisitos" toggleable="true">
+                    <table>
+                        <tr>
+                            <td>
+                                <p:outputLabel for="req" value="Requisito"/>
+                                <br/>
+                                <p:inputText id="req" value="#{menuBean.configBean.requisito}"/>
+                            </td>
+                            <td>
+                                <p:commandButton value="&gt;" actionListener="#{menuBean.configBean.agregarRequisito()}" update="requisitos,req" />
+                                <br/>
+                                <br/>
+                                <p:commandButton value="&lt;" actionListener="#{menuBean.configBean.quitarRequisito()}" update="requisitos"/>
+
+                            </td>
+                            <td>
+                                <p:selectOneListbox id="requisitos" style="height: 200px;" 
+                                                    value="#{menuBean.configBean.requisito_eliminar}" >
+                                    <f:selectItems value="#{menuBean.configBean.requisitos}" />
+                                </p:selectOneListbox>
+                            </td>
+                        </tr>
+                    </table>
+                </p:panel>
+
+
+                <p:commandButton value="Guardar" actionListener="#{menuBean.save()}" ajax="false"/>
+                <p:lightBox iframe="true">  
+                    <h:outputLink value="http://www.sedl.org/scimath/pasopartners/pdfs/health.pdf" title="Health.pdf">  
+                        <h:outputText value="PF"/>  
+                    </h:outputLink>  
+                </p:lightBox>
+            </p:layoutUnit>
+        </p:layout>
+    </h:form>
+</html>
+

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <body>
+        <ui:composition>
+            <p:panel style="height: 90px;">
+                <p:spacer height="10"/>
+                <h:graphicImage id="headerImage" url="/resources/images/logo_unitec.png" style="width: 250px; "/>
+            </p:panel>
+            <h:form id="formHeader" rendered="#{user.logged}">
+                <table align="right">
+                    <tr>
+                        <td>
+                            <h:outputText value="Solutio  |  " style="background: none;" />
+                        </td>
+                        <td>
+                            <h:outputText value="#{user.nombre}   |   " style="background: none;"/>
+                        </td>
+                        <td>
+                            <p:commandLink ajax="false" actionListener="#{user.logout()}" value="Logout" style="background: none;"/>
+                        </td>
+                    </tr>
+                </table>                
+            </h:form>
+            <p:panelGrid rendered="false" columns="3" 
+                         style="margin-left: auto; border: 0px;">
+                <h:outputText value="Solutio" style="background: none;" />
+                <h:outputText value="#{user.nombre}" style="background: none;"/>
+                <p:commandLink ajax="false" actionListener="#{user.logout()}" value="Logout" style="background: none;"/>
+            </p:panelGrid>
+
+        </ui:composition>
+    </body>
+</html>
+

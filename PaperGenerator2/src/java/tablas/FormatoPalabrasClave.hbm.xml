@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-13-2012 06:37:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="tablas.FormatoPalabrasClave" table="formato_palabras_clave" catalog="papergeneratordb">
+        <id name="idPalabrasClave" type="int">
+            <column name="id_palabras_clave" />
+            <generator class="assigned" />
+        </id>
+        <property name="muestra" type="string">
+            <column name="muestra" not-null="true" />
+        </property>
+        <property name="cantidadMinima" type="int">
+            <column name="cantidad_minima" not-null="true" />
+        </property>
+        <property name="cantidadMaximo" type="int">
+            <column name="cantidad_maximo" not-null="true" />
+        </property>
+        <property name="indentacion" type="boolean">
+            <column name="indentacion" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

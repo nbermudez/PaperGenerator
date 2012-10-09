@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-13-2012 06:37:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="tablas.ReferenciasXPaper" table="referencias_x_paper" catalog="papergeneratordb">
+        <id name="idPaper" type="int">
+            <column name="id_paper" />
+            <generator class="assigned" />
+        </id>
+        <property name="idReferencia" type="java.lang.Integer">
+            <column name="id_referencia" />
+        </property>
+    </class>
+</hibernate-mapping>

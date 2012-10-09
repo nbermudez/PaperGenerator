@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-13-2012 06:37:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="tablas.PermisosXRoles" table="permisos_x_roles" catalog="papergeneratordb">
+        <composite-id name="id" class="tablas.PermisosXRolesId">
+            <key-property name="idPermiso" type="int">
+                <column name="id_permiso" />
+            </key-property>
+            <key-property name="idRol" type="int">
+                <column name="id_rol" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

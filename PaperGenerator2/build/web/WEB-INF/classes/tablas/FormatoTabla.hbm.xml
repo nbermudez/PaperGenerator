@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-13-2012 06:37:11 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="tablas.FormatoTabla" table="formato_tabla" catalog="papergeneratordb">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="idTabla" type="int">
+            <column name="id_tabla" not-null="true" />
+        </property>
+        <property name="columnasSeccion" type="int">
+            <column name="columnas_seccion" not-null="true" />
+        </property>
+        <property name="ancho" type="int">
+            <column name="ancho" not-null="true" />
+        </property>
+        <property name="alto" type="int">
+            <column name="alto" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

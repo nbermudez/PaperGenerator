@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:form id="form_busqueda" style="margin-top: 0px; margin-bottom: 0px;">
+
+        <p:scrollPanel mode="native" style="height: 435px; border: 0px;">
+            <p:panel header="Opciones de Búsqueda" style="background: none;">
+                <p:outputLabel for="filtros" value="Frases clave: "/>
+                <p:autoComplete maxResults="15" id="filtros" value="#{tbusquedaBean.filtros}" completeMethod="#{autoComplete.complete}" multiple="true"/>
+                <p:commandButton value="Buscar" actionListener="#{tbusquedaBean.Filtrar()}" 
+                                 update=":tabView:form_busqueda:papers" />
+            </p:panel>
+            <p:dataGrid value="#{tbusquedaBean.filteredPapers}" var="paper" id="papers"  
+                        paginator="true" rows="3" columns="1" 
+                        paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"  
+                        rowsPerPageTemplate="5,10" paginatorPosition="bottom"
+                        emptyMessage="No hay artículos">  
+
+                <f:facet name="header">  
+                    Papers 
+                </f:facet>
+                <p:column>
+                    <p:panel style="background: none; border: 0px;">                        
+                        <h:outputLabel value="#{paper.titulo}"/>
+                        <br/>
+                        <table>
+                            <tr>
+                                <td>
+                                    <p:commandButton value="Ver completo" ajax="false" onclick="this.form.target='_blank'" action="#{pdf.downloadPDF()}"
+                                                     icon="ui-icon-search" style="width: 130px;">
+                                        <f:setPropertyActionListener value="#{paper}" target="#{tbusquedaBean.selectedPaper}" />
+                                        <f:setPropertyActionListener value="#{paper.titulo}" target="#{pdf.titulo}"/>
+                                    </p:commandButton>
+                                </td>
+                                <td>
+                                    <p:lightBox id="light">
+                                        <p:commandButton value="Ver abstract" icon="ui-icon-search" style="width: 130px;"/>
+                                        <f:facet name="inline">
+                                            <table style="background-color: whitesmoke; width: 900px;">
+                                                <tr>
+                                                    <td>
+                                                        <p:graphicImage value="/resources/images/thumbnails/#{paper.idPaper}.jpg" width="200"/>
+                                                    </td>
+
+                                                    <td>
+                                                        <p:panel style="border:0px; margin-top: 0px; background: none;">
+                                                            <h3>
+                                                                <h:outputText value="#{paper.titulo}"/>
+                                                            </h3>
+                                                            <h4>
+                                                                Abstract:
+                                                            </h4>
+                                                            <h:outputText style="font-size: smaller;" value="#{paper.resumen}"/>
+                                                        </p:panel>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </f:facet>
+                                    </p:lightBox>
+                                </td>
+                            </tr>
+                        </table>
+                    </p:panel>                    
+                </p:column>
+            </p:dataGrid>
+        </p:scrollPanel>
+    </h:form>
+</html>
+
