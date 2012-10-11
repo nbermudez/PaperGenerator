@@ -14,55 +14,22 @@
                                  update=":tabView:form_busqueda:papers" />
             </p:panel>
             <p:dataGrid value="#{tbusquedaBean.filteredPapers}" var="paper" id="papers"  
-                        paginator="true" rows="3" columns="1" 
+                        paginator="true" rows="6" columns="1" 
                         paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"  
-                        rowsPerPageTemplate="5,10" paginatorPosition="bottom"
+                        rowsPerPageTemplate="6,12,18" paginatorPosition="bottom"
                         emptyMessage="No hay artículos">  
 
                 <f:facet name="header">  
                     Papers 
                 </f:facet>
                 <p:column>
-                    <p:panel style="background: none; border: 0px;">                        
-                        <h:outputLabel value="#{paper.titulo}"/>
-                        <br/>
-                        <table>
-                            <tr>
-                                <td>
-                                    <p:commandButton value="Ver completo" ajax="false" onclick="this.form.target='_blank'" action="#{pdf.downloadPDF()}"
-                                                     icon="ui-icon-search" style="width: 130px;">
-                                        <f:setPropertyActionListener value="#{paper}" target="#{tbusquedaBean.selectedPaper}" />
-                                        <f:setPropertyActionListener value="#{paper.titulo}" target="#{pdf.titulo}"/>
-                                    </p:commandButton>
-                                </td>
-                                <td>
-                                    <p:lightBox id="light">
-                                        <p:commandButton value="Ver abstract" icon="ui-icon-search" style="width: 130px;"/>
-                                        <f:facet name="inline">
-                                            <table style="background-color: whitesmoke; width: 900px;">
-                                                <tr>
-                                                    <td>
-                                                        <p:graphicImage value="/resources/images/thumbnails/#{paper.idPaper}.jpg" width="200"/>
-                                                    </td>
-
-                                                    <td>
-                                                        <p:panel style="border:0px; margin-top: 0px; background: none;">
-                                                            <h3>
-                                                                <h:outputText value="#{paper.titulo}"/>
-                                                            </h3>
-                                                            <h4>
-                                                                Abstract:
-                                                            </h4>
-                                                            <h:outputText style="font-size: smaller;" value="#{paper.resumen}"/>
-                                                        </p:panel>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </f:facet>
-                                    </p:lightBox>
-                                </td>
-                            </tr>
-                        </table>
+                    <p:panel style="background: none; border: 0px;">   
+                        <p:lightBox iframe="true" width="1000px;" height="313px;">
+                            <h:outputLink value="faces/usuario/resumen.xhtml" style="width: 900px;">
+                                <h:outputText value="#{paper.titulo}"/>  
+                                <f:param name="doc" value="#{paper.titulo}"/>
+                            </h:outputLink>
+                        </p:lightBox>                         
                     </p:panel>                    
                 </p:column>
             </p:dataGrid>

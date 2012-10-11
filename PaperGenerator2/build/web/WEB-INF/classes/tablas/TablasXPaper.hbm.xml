@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 09-13-2012 06:37:11 PM by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 10-10-2012 02:24:51 PM by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="tablas.TablasXPaper" table="tablas_x_paper" catalog="papergeneratordb">
         <id name="idPaper" type="int">

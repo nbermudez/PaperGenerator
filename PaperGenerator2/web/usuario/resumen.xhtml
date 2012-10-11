@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>myFacelet</title>
+    </h:head>
+    
+    <h:body >
+        <h:form>
+            <table style="background-color: whitesmoke;">
+                <tr>
+                    <td>
+                        <p:graphicImage value="/resources/images/thumbnails/#{resumen.paper.idPaper}.jpg" height="290"/>
+                    </td>
+
+                    <td>
+                        <p:panel style="border:0px; margin-top: 0px; background: none;">
+                            <h3>
+                                <h:outputText value="#{resumen.paper.titulo}"/>
+                            </h3>
+                            <h4>
+                                Abstract:
+                            </h4>
+                            <h:outputText style="font-size: smaller;" value="#{resumen.paper.resumen}"/>
+                            <br/>
+                            <br/>
+                            <p:commandButton value="Completo" ajax="false" onclick="this.form.target='_blank'"
+                                             action="#{pdf.downloadPDF()}"
+                                             icon="ui-icon-search" >
+                                <f:param name="id" value="#{resumen.paper.idPaper}"/>
+                            </p:commandButton>
+                        </p:panel>
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </h:body>
+</html>
+

@@ -9,16 +9,15 @@
     </h:head>
     <h:body>
         <h:form id="todo">
-
-            <p:accordionPanel style="height: 390px; background: none;" rendered="#{tree.visible1}">
+            <p:accordionPanel style="height: 420px; background: none;" rendered="#{tree.visible1}">
                 <p:tab title="Volumen 1: 2012">
                     <table>
                         <tr>
                             <td>
-                                <p:graphicImage style="border: 0px; margin-left: 3px;" value="/resources/images/thumbnails/4.jpg" height="260" />
+                                <p:graphicImage style="border: 0px; margin-left: 3px;" value="/resources/images/thumbnails/4.jpg" height="320" />
                             </td>
                             <td>
-                                <p:scrollPanel mode="native" style="height: 260px; background: none; width: 890px;">
+                                <p:scrollPanel mode="native" style="height: 320px; background: none; width: 890px;">
                                     <p:growl id="messages"/>
                                     <p:tree style="width: 850px; border: 0px; background: none;" id="tree"
                                             value="#{tree.root}" var="doc" 
@@ -29,18 +28,17 @@
                                             <h:outputText value="#{doc}"/>  
                                         </p:treeNode>  
 
-                                        <p:treeNode type="document">  
-                                            <span class="ui-button-icon-left ui-icon ui-icon-document"/>
-                                            <h:outputText value="#{doc}" />
-                                            <br/>
-                                            <p:commandButton value="Ver completo" ajax="false" onclick="this.form.target='_blank'" action="#{pdf.downloadPDF(doc)}"
-                                                             icon="ui-icon-search" />
-
-                                            <p:commandButton value="Ver abstract" onclick="this.form.target='_blank'" action="#{tree.mostrarAbstract(doc)}"
-                                                             icon="ui-icon-search" update=":tabView:todo"/>
+                                        <p:treeNode type="document">                                             
+                                            <p:lightBox iframe="true" width="1000px;" height="313px;">
+                                                <h:outputLink value="faces/usuario/resumen.xhtml" style="width: 900px;">
+                                                    <h:outputText value="#{doc}"/>  
+                                                    <f:param name="doc" value="#{doc}"/>
+                                                </h:outputLink>
+                                            </p:lightBox>                                 
                                         </p:treeNode>  
 
                                         <p:treeNode type="picture" icon="ui-icon-image">  
+                                            <span class="ui-button-icon-left ui-icon ui-icon-document"/>
                                             <h:outputText value="#{doc}" />  
                                         </p:treeNode>  
 

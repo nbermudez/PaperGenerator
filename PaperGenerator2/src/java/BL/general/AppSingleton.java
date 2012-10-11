@@ -150,6 +150,18 @@ public class AppSingleton {
         }return -1;
     }
     
+    public String getTituloFromId(int id){
+        try{
+            Query q = session.createQuery("select p\n" +
+"from Papers as p\n" +
+"where p.id="+id);
+            Papers p = (Papers)q.list().get(0);
+            return p.getTitulo();
+        }catch (Exception ex){
+        }
+        return null;
+    }
+    
     public ArrayList<String> getTitulosPaper() {
         List<Papers> papers;
         ArrayList<String> temp = new ArrayList<String>();

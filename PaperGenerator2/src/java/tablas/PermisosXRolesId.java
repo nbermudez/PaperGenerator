@@ -1,5 +1,5 @@
 package tablas;
-// Generated 09-13-2012 06:37:09 PM by Hibernate Tools 3.2.1.GA
+// Generated 10-10-2012 02:24:45 PM by Hibernate Tools 3.2.1.GA
 
 
 
@@ -9,30 +9,30 @@ package tablas;
 public class PermisosXRolesId  implements java.io.Serializable {
 
 
-     private int idPermiso;
      private int idRol;
+     private int idPermiso;
 
     public PermisosXRolesId() {
     }
 
-    public PermisosXRolesId(int idPermiso, int idRol) {
-       this.idPermiso = idPermiso;
+    public PermisosXRolesId(int idRol, int idPermiso) {
        this.idRol = idRol;
+       this.idPermiso = idPermiso;
     }
    
-    public int getIdPermiso() {
-        return this.idPermiso;
-    }
-    
-    public void setIdPermiso(int idPermiso) {
-        this.idPermiso = idPermiso;
-    }
     public int getIdRol() {
         return this.idRol;
     }
     
     public void setIdRol(int idRol) {
         this.idRol = idRol;
+    }
+    public int getIdPermiso() {
+        return this.idPermiso;
+    }
+    
+    public void setIdPermiso(int idPermiso) {
+        this.idPermiso = idPermiso;
     }
 
 
@@ -42,15 +42,15 @@ public class PermisosXRolesId  implements java.io.Serializable {
 		 if ( !(other instanceof PermisosXRolesId) ) return false;
 		 PermisosXRolesId castOther = ( PermisosXRolesId ) other; 
          
-		 return (this.getIdPermiso()==castOther.getIdPermiso())
- && (this.getIdRol()==castOther.getIdRol());
+		 return (this.getIdRol()==castOther.getIdRol())
+ && (this.getIdPermiso()==castOther.getIdPermiso());
    }
    
    public int hashCode() {
          int result = 17;
          
-         result = 37 * result + this.getIdPermiso();
          result = 37 * result + this.getIdRol();
+         result = 37 * result + this.getIdPermiso();
          return result;
    }   
 

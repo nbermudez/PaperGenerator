@@ -64,9 +64,7 @@ public class tablaBusquedaBean implements Serializable {
     }
     
     public void Filtrar(List<String> filts) {
-        boolean containsAll;
-        
-        
+        boolean containsAll;  
         
         this.filteredPapers.clear();
         if (filtros == null) {

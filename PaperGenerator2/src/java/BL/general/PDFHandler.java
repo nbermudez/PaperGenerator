@@ -7,6 +7,7 @@ package BL.general;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
 import java.io.IOException;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -79,8 +80,15 @@ public class PDFHandler {
     }
     
     public void downloadPDF() throws IOException {
-
-        downloadPDF(titulo);
+        FacesContext context = FacesContext.getCurrentInstance();
+        Map<String, String> paramMap = context.getExternalContext().getRequestParameterMap();
+        
+        int id = Integer.parseInt(paramMap.get("id"));
+        if (id<=0){
+            downloadPDF(titulo);
+        }else{
+            downloadPDF(AppSingleton.getInstance().getTituloFromId(id));
+        }
     }
 
     // Helpers (can be refactored to public utility class) ----------------------------------------
