@@ -85,6 +85,24 @@ public class tablaBusquedaBean implements Serializable {
         }
     }
     
+    public List<String> getAutores(String titulo){
+        for (Paper paper : papers) {
+            if(titulo.equals(paper.getTitulo())){
+                return paper.getAutores();
+            }
+        }return null;
+    }
+    
+    public String getAutoresAsString(String titulo){
+        List<String> auts = getAutores(titulo);
+        String temp = "";
+        for (int i = 0; i < auts.size(); i++) {
+            String au = auts.get(i);
+            temp += (i+1)+". "+au+"\n";
+        }
+        return temp;
+    }
+    
     private boolean match(List<String> frases, String filtro){
         for (String string : frases) {
             if(string.matches("[0-9a-zA-Z]*"+filtro+"[0-9a-zA-Z]*")){

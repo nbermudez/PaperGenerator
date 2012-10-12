@@ -1,5 +1,5 @@
 package tablas;
-// Generated 10-10-2012 02:24:45 PM by Hibernate Tools 3.2.1.GA
+// Generated 10-12-2012 11:38:58 AM by Hibernate Tools 3.2.1.GA
 
 
 
@@ -9,34 +9,21 @@ package tablas;
 public class AutoresXPaper  implements java.io.Serializable {
 
 
-     private int idPaper;
-     private Integer idAutor;
+     private AutoresXPaperId id;
 
     public AutoresXPaper() {
     }
 
-	
-    public AutoresXPaper(int idPaper) {
-        this.idPaper = idPaper;
-    }
-    public AutoresXPaper(int idPaper, Integer idAutor) {
-       this.idPaper = idPaper;
-       this.idAutor = idAutor;
+    public AutoresXPaper(AutoresXPaperId id) {
+       this.id = id;
     }
    
-    public int getIdPaper() {
-        return this.idPaper;
+    public AutoresXPaperId getId() {
+        return this.id;
     }
     
-    public void setIdPaper(int idPaper) {
-        this.idPaper = idPaper;
-    }
-    public Integer getIdAutor() {
-        return this.idAutor;
-    }
-    
-    public void setIdAutor(Integer idAutor) {
-        this.idAutor = idAutor;
+    public void setId(AutoresXPaperId id) {
+        this.id = id;
     }
 
 

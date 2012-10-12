@@ -5,6 +5,7 @@
 package BL.general;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,6 +17,16 @@ public class Paper{
     private String resumen;
     
     private int idPaper;
+    
+    private List<String> autores;
+
+    public List<String> getAutores() {
+        return autores;
+    }
+
+    public void setAutores(List<String> autores) {
+        this.autores = autores;
+    }   
 
     public int getIdPaper() {
         return idPaper;
@@ -59,5 +70,6 @@ public class Paper{
         this.frases_clave = AppSingleton.getInstance().getFrasesClave(titulo);
         this.resumen = AppSingleton.getInstance().getResumen(titulo);
         this.idPaper = AppSingleton.getInstance().getIdFromTitulo(titulo);
+        this.autores = AppSingleton.getInstance().getAutores(idPaper);
     }
 }

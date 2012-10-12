@@ -26,10 +26,16 @@
                     <p:panel style="background: none; border: 0px;">   
                         <p:lightBox iframe="true" width="1000px;" height="313px;">
                             <h:outputLink value="faces/usuario/resumen.xhtml" style="width: 900px;">
-                                <h:outputText value="#{paper.titulo}"/>  
+                                <h:outputText id="ptitulo" value="#{paper.titulo}"/>  
                                 <f:param name="doc" value="#{paper.titulo}"/>
                             </h:outputLink>
-                        </p:lightBox>                         
+                        </p:lightBox>   
+                        <p:tooltip for="ptitulo" style="margin-right: auto;" >
+                            <h3>Autores</h3>
+                            <p:dataList value="#{paper.autores}" var="autor" itemType="square" style="background: none; border: 0px;">
+                                #{autor} &nbsp; &nbsp; &nbsp;
+                            </p:dataList>
+                        </p:tooltip>
                     </p:panel>                    
                 </p:column>
             </p:dataGrid>

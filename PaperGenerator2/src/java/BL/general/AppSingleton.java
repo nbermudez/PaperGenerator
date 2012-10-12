@@ -8,11 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import tablas.AlmacenamientoPapers;
-import tablas.FrasesClaveXPaper;
-import tablas.NewHibernateUtil;
-import tablas.Papers;
-import tablas.Permisos;
+import tablas.*;
 
 /**
  *
@@ -236,6 +232,20 @@ public class AppSingleton {
 "where p.titulo='"+titulo+"'");
             t = q.list();
             return t.get(0).getResumen();
+        }catch (Exception ex){
+            String a = ex.getMessage();
+        }
+        return null;
+    }
+    
+    public List<String> getAutores(int idPaper){
+        List<String> t;
+        try{
+            Query q = session.createQuery("select a.autor "+
+"from AutoresXPaper as p, Autores as a "+
+"where p.id.idPaper="+idPaper+" and p.id.idAutor=a.idAutor ");
+            t = q.list();
+            return t;
         }catch (Exception ex){
             String a = ex.getMessage();
         }

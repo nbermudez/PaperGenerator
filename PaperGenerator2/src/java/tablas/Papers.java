@@ -1,5 +1,5 @@
 package tablas;
-// Generated 10-10-2012 02:24:45 PM by Hibernate Tools 3.2.1.GA
+// Generated 10-12-2012 11:38:58 AM by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;

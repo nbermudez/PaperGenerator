@@ -4,15 +4,12 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/papergeneratordb</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/papergeneratordb?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">123</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <property name="hibernate.c3p0.min_size">5</property>
-    <property name="hibernate.c3p0.max_size">20</property>
-    <property name="hibernate.c3p0.timeout">1800</property>
-    <property name="hibernate.c3p0.max_statements">50</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</property>
     
     <mapping resource="tablas/AutoresXPaper.hbm.xml"/>
     <mapping resource="tablas/FormatoResultados.hbm.xml"/>
@@ -32,8 +29,8 @@
     <mapping resource="tablas/FormatoAgradecimiento.hbm.xml"/>
     <mapping resource="tablas/AlmacenamientoPapers.hbm.xml"/>
     <mapping resource="tablas/FormatoPalabrasClave.hbm.xml"/>
-    <mapping resource="tablas/Autores.hbm.xml"/>
     <mapping resource="tablas/Roles.hbm.xml"/>
+    <mapping resource="tablas/Autores.hbm.xml"/>
     <mapping resource="tablas/Permisos.hbm.xml"/>
     <mapping resource="tablas/FormatoIntroduccion.hbm.xml"/>
     <mapping resource="tablas/ReferenciasXPaper.hbm.xml"/>
