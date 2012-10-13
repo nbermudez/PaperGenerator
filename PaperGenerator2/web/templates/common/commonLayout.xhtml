@@ -53,7 +53,7 @@
                                 <ui:include src="/templates/common/commonContent.xhtml" />
                             </ui:insert>
                     </p:tab>
-                    <p:tab title=">Escribir" >                        
+                    <p:tab title=">Escribir" rendered="#{user.logged}">                        
                             <ui:insert name="contentEscribir" >
                                 <ui:include src="/templates/common/commonContent.xhtml" />
                             </ui:insert>                        

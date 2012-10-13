@@ -1,0 +1,16 @@
+/* 
+    Document   : phrases
+    Created on : 10-13-2012, 12:05:29 PM
+    Author     : alejandro
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+#acerca_de{
+    font-size: 14pt;
+    font-style: normal;
+}
