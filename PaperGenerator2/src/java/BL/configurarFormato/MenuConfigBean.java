@@ -4,6 +4,7 @@
  */
 package BL.configurarFormato;
 
+import BL.general.AppSingleton;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -22,7 +23,7 @@ public class MenuConfigBean {
     }
     
     public void save(){
-        addMessage("Configuración Guardada!");
+        AppSingleton.getInstance().addMessage("Configuración Guardada!");
     }
     
     public ConfiguracionesBean getConfigBean() {
@@ -41,7 +42,7 @@ public class MenuConfigBean {
         configBean.setRender_en_mayusculas(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Título);
-        addMessage("Configurando titulo...");
+        AppSingleton.getInstance().addMessage("Configurando titulo...");
     }
     
     public void configResumen(){
@@ -51,7 +52,7 @@ public class MenuConfigBean {
         configBean.setRender_max_palabras(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Resumen);
-        addMessage("Configurando Resumen...");
+        AppSingleton.getInstance().addMessage("Configurando Resumen...");
     }
     
     public void configPalabrasClave(){
@@ -64,7 +65,7 @@ public class MenuConfigBean {
         configBean.setRender_auto_ordenable(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.PalabrasClave);
-        addMessage("Configurando Palabras Clave...");
+        AppSingleton.getInstance().addMessage("Configurando Palabras Clave...");
     }
     
     public void configAutores(){
@@ -74,7 +75,7 @@ public class MenuConfigBean {
         configBean.setRender_maximo_autores(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Autores);
-        addMessage("Configurando Autores...");
+        AppSingleton.getInstance().addMessage("Configurando Autores...");
     }
     
     public void configIntroduccion(){
@@ -85,7 +86,7 @@ public class MenuConfigBean {
         configBean.setRender_columnas_seccion(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Introducción);
-        addMessage("Configurando Introducción...");
+        AppSingleton.getInstance().addMessage("Configurando Introducción...");
     }
     
     public void configMetodologia(){
@@ -96,7 +97,7 @@ public class MenuConfigBean {
         configBean.setRender_columnas_seccion(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Metodología);
-        addMessage("Configurando Metodología...");
+        AppSingleton.getInstance().addMessage("Configurando Metodología...");
     }
     
     public void configResultados(){
@@ -107,7 +108,7 @@ public class MenuConfigBean {
         configBean.setRender_columnas_seccion(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Resultados);
-        addMessage("Configurando Resultados y Análisis...");
+        AppSingleton.getInstance().addMessage("Configurando Resultados y Análisis...");
     }
     
     public void configConclusiones(){
@@ -121,7 +122,7 @@ public class MenuConfigBean {
         configBean.setRender_max_palabras(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Conclusiones);
-        addMessage("Configurando Conclusiones...");
+        AppSingleton.getInstance().addMessage("Configurando Conclusiones...");
     }
     
     public void configAgradecimientos(){
@@ -133,7 +134,7 @@ public class MenuConfigBean {
         configBean.setRender_columnas_seccion(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Agradecimiento);
-        addMessage("Configurando Agradecimientos...");
+        AppSingleton.getInstance().addMessage("Configurando Agradecimientos...");
     }
     
     public void configReferencia(){
@@ -144,7 +145,7 @@ public class MenuConfigBean {
         configBean.setRender_auto_ordenable(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Referencias);
-        addMessage("Configurando Referencias...");
+        AppSingleton.getInstance().addMessage("Configurando Referencias...");
     }
     
     public void configAnexo(){
@@ -156,7 +157,7 @@ public class MenuConfigBean {
         configBean.setRender_columnas_seccion(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Anexo);
-        addMessage("Configurando Anexos...");
+        AppSingleton.getInstance().addMessage("Configurando Anexos...");
     }
     
     public void configRevisionLiteraria(){
@@ -168,48 +169,48 @@ public class MenuConfigBean {
         configBean.setRender_opcional(true);
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.RevisionLiteraria);
-        addMessage("Configurando Revisión Literaria...");
+        AppSingleton.getInstance().addMessage("Configurando Revisión Literaria...");
     }
     
     public void configTablaC1(){
         this.deRenderAll();
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.TablasC1);
-        addMessage("Configurando Tablas...");
+        AppSingleton.getInstance().addMessage("Configurando Tablas...");
     }
     
     public void configTablaC2(){
         this.deRenderAll();
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.TablasC2);
-        addMessage("Configurando Tablas...");
+        AppSingleton.getInstance().addMessage("Configurando Tablas...");
     }
     
     public void configSubtituloN1(){
         this.deRenderAll();
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.SubtituloN1);
-        addMessage("Configurando Subtitulo...");
+        AppSingleton.getInstance().addMessage("Configurando Subtitulo...");
     }
     
     public void configSubtituloN2(){
         this.deRenderAll();
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.SubtituloN2);
-        addMessage("Configurando Subtitulo...");
+        AppSingleton.getInstance().addMessage("Configurando Subtitulo...");
     }
     
     public void configSubtituloN3(){
         this.deRenderAll();
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.SubtituloN3);
-        addMessage("Configurando Subtitulo...");
+        AppSingleton.getInstance().addMessage("Configurando Subtitulo...");
     }
     
     public void configImagenes(){
         this.deRenderAll();
         
         configBean.setConfig_seleccionada(ConfiguracionesBean.Secciones.Imagenes);
-        addMessage("Configurando Imagenes...");
+        AppSingleton.getInstance().addMessage("Configurando Imagenes...");
     }
     
     private void deRenderAll(){
@@ -223,10 +224,5 @@ public class MenuConfigBean {
         configBean.setRender_minimo_autores(false);
         configBean.setRender_norma(false);
         configBean.setRender_opcional(false);
-    }
-    
-    public void addMessage(String summary) {  
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);  
-        FacesContext.getCurrentInstance().addMessage(null, message);  
     }
 }

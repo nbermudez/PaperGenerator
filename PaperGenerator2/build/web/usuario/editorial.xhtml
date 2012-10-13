@@ -30,12 +30,12 @@
             <br/>
             <br/>
             <p:panel id="editorialF">
+                <h1 style="text-align: center;">
+                    Comité Editorial de la Revista
+                </h1>
                 <table>
                     <tr>
-                        <td width="300px;">
-                            <h1>
-                                Grupo Editorial
-                            </h1>
+                        <td width="300px;" style="padding-left: 60px;">
                             <h2>
                                 Director
                             </h2>
@@ -117,16 +117,25 @@
                             </a>
                         </td>
                         <td>
-                            
+
                             <p:panelGrid columns="2" id="bio" rendered="#{app.bioVisible}"
-                                         style="margin-left: 200px;">
-                                <p:graphicImage style="border: 0px; width: 250px;" value="/resources/images/thumbnails/3.jpg" width="150" />
-                                <h:outputText value="#{app.nombre}"/>
+                                         style="margin-left: 70px;">
+                                <p:graphicImage style="border: 0px; width: 250px;" value="/resources/images/bio/#{app.abr}.jpg" width="150" />
+                                <p:panel style="background: none; border: 0px;">
+                                    <h3>
+                                        #{app.nombre}
+                                    </h3>
+                                    <h:outputText value="#{app.bio}"/>
+                                </p:panel>
                             </p:panelGrid>
                         </td>
                     </tr>
                 </table>
-
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                
             </p:panel>
 
         </h:form>

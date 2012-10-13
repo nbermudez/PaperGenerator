@@ -6,6 +6,8 @@ package BL.general;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import tablas.*;
@@ -250,6 +252,13 @@ public class AppSingleton {
             String a = ex.getMessage();
         }
         return null;
+    }
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Generales">
+    public void addMessage(String summary) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
     //</editor-fold>
 }

@@ -6,10 +6,8 @@ package BL.login;
 
 import BL.general.AppSingleton;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.ConfigurableNavigationHandler;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -109,17 +107,17 @@ public class tableController {
                     permisos = AppSingleton.getInstance().getPermisos(usuario.getCorreo());
                     logged = true;
                     fallo = false;
-                    addMessage(name);
+                    AppSingleton.getInstance().addMessage(name);
                 }else{
-                    addMessage("Su correo aun no ha sido aprobado por el administrador");
+                    AppSingleton.getInstance().addMessage("Su correo aun no ha sido aprobado por el administrador");
                 }
             } else {
                 fallo = true;
-                addMessage("Contraseña incorrecta");
+                AppSingleton.getInstance().addMessage("Contraseña incorrecta");
             }
         } else {
             fallo = true;
-            addMessage("Este correo no está registrado en el sistema");
+            AppSingleton.getInstance().addMessage("Este correo no está registrado en el sistema");
         }
         this.redirect();
     }
@@ -149,10 +147,5 @@ public class tableController {
         redirect();
         //return 0;
 
-    }
-
-    public void addMessage(String summary) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, null);
-        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 }
