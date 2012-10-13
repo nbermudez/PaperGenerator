@@ -5,13 +5,13 @@
 package BL.ejemplares;
 
 import BL.general.AppSingleton;
+import BL.general.Paper;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
-import tablas.Papers;
 
 /**
  *
@@ -23,13 +23,13 @@ public class treeController implements Serializable{
     private TreeNode root;  
     private TreeNode selected;
     private boolean visible1;
-    private Papers paperActual;
+    private Paper paperActual;
 
-    public Papers getPaperActual() {
+    public Paper getPaperActual() {
         return paperActual;
     }
 
-    public void setPaperActual(Papers paperActual) {
+    public void setPaperActual(Paper paperActual) {
         this.paperActual = paperActual;
     }    
 
@@ -55,15 +55,13 @@ public class treeController implements Serializable{
   
         TreeNode numero1 = new DefaultTreeNode("Número 1", root);  
         numero1.setExpanded(true);
-        TreeNode numero2 = new DefaultTreeNode("Número 2", root);  
   
         //Documents  
         ArrayList<String> titulos = AppSingleton.getInstance().getTitulosPaper();
         TreeNode p;
         for (String string : titulos) {
-            p = new DefaultTreeNode("document",string,numero1);
+            p = new DefaultTreeNode("document",AppSingleton.getInstance().getPaper(string),numero1);
         }
-   
     } 
     
     public void handleSelected(){
@@ -71,6 +69,10 @@ public class treeController implements Serializable{
             this.paperActual = AppSingleton.getInstance().getPaper(selected.getData().toString());
             this.visible1 = false;
         }
+    }
+    
+    public void setActual(String select){
+        this.paperActual = AppSingleton.getInstance().getPaper(select);
     }
     
     public void mostrarAbstract(String tit){

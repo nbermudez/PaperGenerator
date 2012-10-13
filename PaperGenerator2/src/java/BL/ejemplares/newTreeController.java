@@ -9,13 +9,13 @@ package BL.ejemplares;
  * @author alejandro
  */
 import BL.general.AppSingleton;
+import BL.general.Paper;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
-import tablas.Papers;
 
 @ManagedBean(name = "ntree")
 @SessionScoped
@@ -24,7 +24,7 @@ public class newTreeController implements Serializable {
     private TreeNode root;
     private TreeNode selected;
     private boolean visibleL1;
-    private Papers paperActual;
+    private Paper paperActual;
     private boolean visibleL2;
     private boolean visibleL3;
     private ArrayList<Volumen> volumenes;
@@ -79,11 +79,11 @@ public class newTreeController implements Serializable {
         this.visibleL3 = visibleL3;
     }
 
-    public Papers getPaperActual() {
+    public Paper getPaperActual() {
         return paperActual;
     }
 
-    public void setPaperActual(Papers paperActual) {
+    public void setPaperActual(Paper paperActual) {
         this.paperActual = paperActual;
     }
 

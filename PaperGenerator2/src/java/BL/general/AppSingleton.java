@@ -165,7 +165,7 @@ public class AppSingleton {
         ArrayList<String> temp = new ArrayList<String>();
         try {
             org.hibernate.Transaction tx = session.beginTransaction();
-            Query q = session.createQuery("from Papers");
+            Query q = session.createQuery("from Papers order by titulo");
 
             papers = q.list();
             for (int i = 0; i < papers.size(); i++) {
@@ -199,27 +199,27 @@ public class AppSingleton {
         return null;
     }
     
-    public Papers getPaper(int Id){
-        List<Papers> t;
+    public Paper getPaper(int Id){
+        Papers t;
         try{
             Query q = session.createQuery("select p\n" +
 "from Papers as p\n" +
 "where p.id="+Id);
-            t = q.list();
-            return t.get(0);
+            t = (Papers)q.list().get(0);
+            return new Paper(t.getTitulo());
         }catch (Exception ex){
         }
         return null;
     }
     
-    public Papers getPaper(String titulo){
-        List<Papers> t;
+    public Paper getPaper(String titulo){
+        Papers t;
         try{
             Query q = session.createQuery("select p\n" +
 "from Papers as p\n" +
 "where p.titulo='"+titulo+"'");
-            t = q.list();
-            return t.get(0);
+            t = (Papers)q.list().get(0);
+            return new Paper(t.getTitulo());
         }catch (Exception ex){
             String a = ex.getMessage();
         }
@@ -245,7 +245,7 @@ public class AppSingleton {
         try{
             Query q = session.createQuery("select a.autor "+
 "from AutoresXPaper as p, Autores as a "+
-"where p.id.idPaper="+idPaper+" and p.id.idAutor=a.idAutor ");
+"where p.id.idPaper="+idPaper+" and p.id.idAutor=a.idAutor order by a.autor");
             t = q.list();
             return t;
         }catch (Exception ex){

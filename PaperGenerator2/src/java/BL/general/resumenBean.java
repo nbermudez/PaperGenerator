@@ -7,9 +7,7 @@ package BL.general;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import tablas.Papers;
 
 /**
  *
@@ -18,13 +16,13 @@ import tablas.Papers;
 @ManagedBean(name="resumen")
 @RequestScoped
 public class resumenBean {
-    private Papers paper;
+    private Paper paper;
 
-    public Papers getPaper() {
+    public Paper getPaper() {
         return paper;
     }
 
-    public void setPaper(Papers paper) {
+    public void setPaper(Paper paper) {
         this.paper = paper;
     }
     

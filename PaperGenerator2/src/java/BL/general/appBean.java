@@ -6,7 +6,6 @@ package BL.general;
 
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import tablas.Papers;
 
 /**
  *
@@ -80,7 +79,7 @@ public class appBean {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Paper Related">
-    public Papers getPaper(String titulo) {
+    public Paper getPaper(String titulo) {
         return AppSingleton.getInstance().getPaper(titulo);
     }
     //</editor-fold>
