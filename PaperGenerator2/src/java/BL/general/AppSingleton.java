@@ -142,7 +142,7 @@ public class AppSingleton {
     public int getIdFromTitulo(String titulo){
         List<Papers> papers = getPapers();
         for (Papers papers1 : papers) {
-            if(papers1.getTitulo().equals(titulo.toUpperCase())){
+            if(papers1.getTitulo().equals(titulo)){
                 return papers1.getIdPaper();
             }
         }return -1;

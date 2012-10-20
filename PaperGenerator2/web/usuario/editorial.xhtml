@@ -36,12 +36,9 @@
                 <table>
                     <tr>
                         <td width="300px;" style="padding-left: 60px;">
-                            <h2>
-                                Director
-                            </h2>
-                            <h3 onmouseover="mostrar('Jacobo');" onmouseout="hideBio();">
+                            <h4 onmouseover="mostrar('Jacobo');" onmouseout="hideBio();">
                                 Juan Jacobo Paredes Heller, Ph.D.                     
-                            </h3>
+                            </h4>
                             <p:remoteCommand async="true" name="mostrarJacobo" actionListener="#{app.setBioInfo('Jacobo')}"
                                              update="editorialF"/>
                             <a href="mailto:jacobo.paredes.heller@unitec.edu" >
@@ -57,7 +54,6 @@
                                 </table>                       
 
                             </a>
-                            <br/>
                             <h4 onmouseover="mostrar('Jose');" onmouseout="hideBio();">
                                 José Arnoldo Sermeño Lima, Ph.D. 
                             </h4>
@@ -120,7 +116,7 @@
 
                             <p:panelGrid columns="2" id="bio" rendered="#{app.bioVisible}"
                                          style="margin-left: 70px; margin-right: 60px;">
-                                <p:graphicImage style="border: 0px;" value="/resources/images/bio/#{app.abr}.jpg" height="300" />
+                                <p:graphicImage style="border: 0px;" value="/resources/images/bio/#{app.abr}.jpg" height="290" />
                                 <p:panel style="background: none; border: 0px;">
                                     <h3>
                                         #{app.nombre}
