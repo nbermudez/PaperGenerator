@@ -9,17 +9,17 @@
     </h:head>
     <h:body>
         <h:form id="todo">
-            <p:accordionPanel style="height: 420px; background: none;" rendered="#{tree.visible1}">
+            <p:accordionPanel style="height: 423px; background: none;" rendered="#{tree.visible1}">
                 <p:tab title="Volumen 1: 2012">
                     <table>
                         <tr>
                             <td>
-                                <p:graphicImage style="border: 0px; margin-left: 3px;" value="/resources/images/thumbnails/4.jpg" height="320" />
+                                <p:graphicImage style="border: 0px; margin-left: 3px;" value="/resources/images/thumbnails/4.jpg" height="325" />
                             </td>
                             <td>
-                                <p:scrollPanel mode="native" style="height: 320px; background: none; width: 890px;">
+                                <p:scrollPanel mode="native" style="height: 325px; background: none; width: 890px;">
                                     <p:growl id="messages"/>
-                                    <p:tree style="width: 850px; border: 0px; background: none;" id="tree"
+                                    <p:tree style="width: 850px; border: 0px; background: none; font-size: 10pt;" id="tree"
                                             value="#{tree.root}" var="doc" 
                                             selection="#{tree.selected}" dynamic="true">  
 
@@ -34,7 +34,7 @@
                                                 
                                                 <h:outputLink value="faces/usuario/resumen.xhtml" style="width: 900px;">
                                                     <span class="ui-button-icon-left ui-icon ui-icon-document"/>
-                                                    <h:outputText id="ptitulo" value="#{doc.titulo}."/>  
+                                                    <h:outputText id="ptitulo" value="#{doc.titulo}." style="font-size: 10pt;"/>  
                                                     <f:param name="doc" value="#{doc.titulo}"/>
                                                 </h:outputLink>
                                             </p:lightBox>   

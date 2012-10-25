@@ -36,7 +36,7 @@
 
             <p:scrollPanel mode="native" style="height: 430px; border: 0px;">
                 <p:panel header="Opciones de Búsqueda" style="background: none;">
-                    <p:outputLabel for="filtros" value="Frases clave: "/>
+                    <p:outputLabel for="filtros" value="Frases clave: " style="font-size: 10pt; font-weight: bold;"/>
                     <p:autoComplete maxResults="15" id="filtros" value="#{tbusquedaBean.filtros}" completeMethod="#{autoComplete.complete}" multiple="true"/>
                     <p:commandButton value="Buscar" actionListener="#{tbusquedaBean.Filtrar()}" 
                                      update=":tabView:form_busqueda:papers" />
@@ -53,8 +53,19 @@
                     </f:facet>
                     <p:column>
                         <p:panel style="background: none; border: 0px;">
-                            <p:commandLink onclick="doit('#{paper.titulo}');">
-                                <h:outputText id="ptitulo" value="#{paper.titulo}."/>
+                            <p:commandLink onclick="doit('#{paper.titulo}');" style="text-decoration: none;">
+                                <table cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td>
+                                            <span class="ui-button-icon-left ui-icon ui-icon-search"/>  
+                                        </td>
+                                        <td>
+                                            <h:outputText id="ptitulo" value="#{paper.titulo}." style="font-size: 10pt;"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                                                                  
+                                
                             </p:commandLink>                             
                             <p:tooltip for="ptitulo" style="margin-right: auto;" >
                                 <h3>Autores</h3>

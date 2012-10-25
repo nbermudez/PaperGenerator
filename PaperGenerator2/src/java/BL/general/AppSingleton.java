@@ -53,7 +53,7 @@ public class AppSingleton {
         ArrayList<String> temp = new ArrayList<String>();
         
         List<FrasesClaveXPaper> frases = getFrasesClaveXPaper();
-        Papers paper = findPaper(tituloPaper.toUpperCase());
+        Papers paper = findPaper(tituloPaper);
         if(paper==null){
             return null;
         }
@@ -103,7 +103,7 @@ public class AppSingleton {
         Papers paper = null;
         List<Papers> papers = getPapers();
         for (Papers paper1 : papers) {
-            if(paper1.getTitulo().equals(tituloPaper.toUpperCase())){
+            if(paper1.getTitulo().equals(tituloPaper)){
                 paper = paper1;
                 break;
             }            

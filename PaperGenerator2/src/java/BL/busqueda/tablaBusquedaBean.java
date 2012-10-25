@@ -76,7 +76,7 @@ public class tablaBusquedaBean implements Serializable {
             List<String> frases = paper.getFrases_clave();
 
             for (String filtro : filts) {
-                boolean tt = match(frases, filtro);
+                boolean tt = match(frases, filtro.toLowerCase());
                 containsAll = containsAll && tt;
             }
             if (containsAll) {
