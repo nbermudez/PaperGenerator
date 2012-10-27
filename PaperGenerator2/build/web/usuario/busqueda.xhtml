@@ -35,9 +35,10 @@
         <h:form id="form_busqueda" style="margin-top: 0px; margin-bottom: 0px;">
 
             <p:scrollPanel mode="native" style="height: 430px; border: 0px;">
-                <p:panel header="Opciones de Búsqueda" style="background: none;">
+                <p:panel header="Opciones de Búsqueda" style="background: none; ">
                     <p:outputLabel for="filtros" value="Frases clave: " style="font-size: 10pt; font-weight: bold;"/>
-                    <p:autoComplete maxResults="15" id="filtros" value="#{tbusquedaBean.filtros}" completeMethod="#{autoComplete.complete}" multiple="true"/>
+                    <p:autoComplete maxResults="15" id="filtros" value="#{tbusquedaBean.filtros}" completeMethod="#{autoComplete.complete}"
+                                    multiple="true"/>
                     <p:commandButton value="Buscar" actionListener="#{tbusquedaBean.Filtrar()}" 
                                      update=":tabView:form_busqueda:papers" />
                 </p:panel>
