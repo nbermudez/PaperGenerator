@@ -19,7 +19,7 @@
 
 #footer{
 	width: 100%;
-	height:60px;
+	height:45px;
 	border: 0px solid #000;
 }
 
@@ -55,4 +55,9 @@
 .column_no_border{
     border: 0px;
     background: none;
+}
+
+.vertical-separator{
+    width: 1px;
+    background-color: gray;
 }

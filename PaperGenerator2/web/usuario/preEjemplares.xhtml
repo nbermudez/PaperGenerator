@@ -14,12 +14,14 @@
                     <table>
                         <tr>
                             <td>
-                                <p:graphicImage style="border: 0px; margin-left: 3px;" value="/resources/images/thumbnails/4.jpg" height="325" />
+                                <a href="/PaperGenerator2/faces/resources/volumen/vol1.pdf" target="_new" style="color:blue;">
+                                    <p:graphicImage style="border: 0px; margin-left: 3px;" value="/resources/images/thumbnails/Volumen 1.png" height="325" />
+                                </a>
                             </td>
                             <td>
                                 <p:scrollPanel mode="native" style="height: 325px; background: none; width: 890px;">
                                     <p:growl id="messages"/>
-                                    <p:tree style="width: 850px; border: 0px; background: none; font-size: 10pt;" id="tree"
+                                    <p:tree style="width: 850px; border: 0px; background: none; font-size: 10.5pt;" id="tree"
                                             value="#{tree.root}" var="doc" 
                                             selection="#{tree.selected}" dynamic="true">  
 
@@ -30,17 +32,17 @@
 
                                         <p:treeNode type="document">
                                             
-                                            <p:lightBox iframe="true" width="1000px;" height="313px;">
+                                            <p:lightBox iframe="true" width="1000px;" height="480px;">
                                                 
                                                 <h:outputLink value="faces/usuario/resumen.xhtml" style="width: 900px;">
                                                     <span class="ui-button-icon-left ui-icon ui-icon-document"/>
-                                                    <h:outputText id="ptitulo" value="#{doc.titulo}." style="font-size: 10pt;"/>  
+                                                    <h:outputText id="ptitulo" value="#{doc.titulo}." style="font-size: 10.5pt;"/>  
                                                     <f:param name="doc" value="#{doc.titulo}"/>
                                                 </h:outputLink>
                                             </p:lightBox>   
                                             <p:tooltip for="ptitulo" style="margin-right: auto;" >
                                                 <h3>Autores</h3>
-                                                <p:dataList value="#{doc.autores}" var="autor" itemType="square" style="background: none; border: 0px;">
+                                                <p:dataList value="#{doc.autores}" var="autor" itemType="square" style="background: none; background-color: transparent; border: 0px; ">
                                                     #{autor} &nbsp; &nbsp; &nbsp;
                                                 </p:dataList>
                                             </p:tooltip>
@@ -80,7 +82,7 @@
                             <h:outputText value="#{tree.paperActual.titulo}"/>
                         </h3>
                         <h4>
-                            Abstract:
+                            Resumen:
                         </h4>
                         <h:outputText style="font-size: smaller;" value="#{tree.paperActual.resumen}"/>
                         <br/>

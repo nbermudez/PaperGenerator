@@ -1,5 +1,5 @@
 package tablas;
-// Generated 10-12-2012 11:38:58 AM by Hibernate Tools 3.2.1.GA
+// Generated 27-oct-2012 14:04:15 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -13,6 +13,7 @@ public class Papers  implements java.io.Serializable {
      private Integer idPaper;
      private String titulo;
      private String resumen;
+     private String resumenEng;
      private String introduccion;
      private Date fechaRecibido;
      private String metodologia;
@@ -23,9 +24,10 @@ public class Papers  implements java.io.Serializable {
     public Papers() {
     }
 
-    public Papers(String titulo, String resumen, String introduccion, Date fechaRecibido, String metodologia, String resultadosAnalisis, String conclusiones, String agradecimientos) {
+    public Papers(String titulo, String resumen, String resumenEng, String introduccion, Date fechaRecibido, String metodologia, String resultadosAnalisis, String conclusiones, String agradecimientos) {
        this.titulo = titulo;
        this.resumen = resumen;
+       this.resumenEng = resumenEng;
        this.introduccion = introduccion;
        this.fechaRecibido = fechaRecibido;
        this.metodologia = metodologia;
@@ -54,6 +56,13 @@ public class Papers  implements java.io.Serializable {
     
     public void setResumen(String resumen) {
         this.resumen = resumen;
+    }
+    public String getResumenEng() {
+        return this.resumenEng;
+    }
+    
+    public void setResumenEng(String resumenEng) {
+        this.resumenEng = resumenEng;
     }
     public String getIntroduccion() {
         return this.introduccion;

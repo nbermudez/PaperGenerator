@@ -19,6 +19,16 @@ public class Paper{
     private int idPaper;
     
     private List<String> autores;
+    
+    private String resumen_eng;
+
+    public String getResumen_eng() {
+        return resumen_eng;
+    }
+
+    public void setResumen_eng(String resumen_eng) {
+        this.resumen_eng = resumen_eng;
+    }    
 
     public List<String> getAutores() {
         return autores;
@@ -69,6 +79,7 @@ public class Paper{
         this.titulo = titulo;
         this.frases_clave = AppSingleton.getInstance().getFrasesClave(titulo);
         this.resumen = AppSingleton.getInstance().getResumen(titulo);
+        this.resumen_eng = AppSingleton.getInstance().getResumen_Eng(titulo);
         this.idPaper = AppSingleton.getInstance().getIdFromTitulo(titulo);
         this.autores = AppSingleton.getInstance().getAutores(idPaper);
     }

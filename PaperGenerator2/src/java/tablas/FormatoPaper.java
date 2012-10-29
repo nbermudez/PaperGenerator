@@ -1,5 +1,5 @@
 package tablas;
-// Generated 10-12-2012 11:38:58 AM by Hibernate Tools 3.2.1.GA
+// Generated 27-oct-2012 14:04:15 by Hibernate Tools 3.2.1.GA
 
 
 

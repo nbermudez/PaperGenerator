@@ -4,6 +4,7 @@
  */
 package BL.general;
 
+import hibernate_util.NewHibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -234,6 +235,20 @@ public class AppSingleton {
 "where p.titulo='"+titulo+"'");
             t = q.list();
             return t.get(0).getResumen();
+        }catch (Exception ex){
+            String a = ex.getMessage();
+        }
+        return null;
+    }
+    
+    public String getResumen_Eng(String titulo){
+        List<Papers> t;
+        try{
+            Query q = session.createQuery("select p\n" +
+"from Papers as p\n" +
+"where p.titulo='"+titulo+"'");
+            t = q.list();
+            return t.get(0).getResumenEng();
         }catch (Exception ex){
             String a = ex.getMessage();
         }

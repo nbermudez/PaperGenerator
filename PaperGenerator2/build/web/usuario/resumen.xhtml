@@ -19,6 +19,11 @@
                 </h4>
                 <h:outputText style="font-size: 11pt; font-family: serif;" value="#{resumen.paper.resumen}"/>
                 <br/>
+                <h4>
+                    Abstract:
+                </h4>
+                <h:outputText style="font-size: 11pt; font-family: serif;" value="#{resumen.paper.resumen_eng}"/>
+                <br/>
                 <br/>
                 <p:commandButton value="Completo" ajax="false" onclick="this.form.target='_blank'"
                                  action="#{pdf.downloadPDF()}"

@@ -7,7 +7,7 @@ package BL.login;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import tablas.NewHibernateUtil;
+import hibernate_util.NewHibernateUtil;
 import tablas.Usuarios;
 import tablas.UsuariosNoAprobados;
 //import NewHibernateUtil;

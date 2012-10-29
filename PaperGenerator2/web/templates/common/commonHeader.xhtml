@@ -7,9 +7,9 @@
       xmlns:h="http://java.sun.com/jsf/html">
     <body>
         <ui:composition>
-            <p:panel style="height: 90px;">
-                <h:graphicImage id="headerImage" url="/resources/images/logo_unitec.png" style="width: 100%; "/>
-            </p:panel>
+            <h:outputLink value="/PaperGenerator2/faces/index.xhtml">
+                <h:graphicImage id="headerImage" url="/resources/images/logo_unitec.png" style="width: 100%; " height="90px;"/>
+            </h:outputLink>
             <h:form id="formHeader" rendered="#{user.logged}">
                 <table align="right">
                     <tr>
