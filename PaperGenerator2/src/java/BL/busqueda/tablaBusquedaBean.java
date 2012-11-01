@@ -63,6 +63,11 @@ public class tablaBusquedaBean implements Serializable {
         Filtrar(filtros);
     }
     
+    public void Limpiar(){
+        this.filtros.clear();
+        this.filteredPapers.clear();
+    }
+    
     public void Filtrar(List<String> filts) {
         boolean containsAll;  
         
@@ -74,6 +79,7 @@ public class tablaBusquedaBean implements Serializable {
         for (Paper paper : papers) {
             containsAll = true;
             List<String> frases = paper.getFrases_clave();
+            frases.add(paper.getTitulo().toLowerCase());
 
             for (String filtro : filts) {
                 boolean tt = match(frases, filtro.toLowerCase());

@@ -35,6 +35,7 @@ public class resumenBean {
         FacesContext context = FacesContext.getCurrentInstance();
         Map<String, String> paramMap = context.getExternalContext().getRequestParameterMap();
         String doc = paramMap.get("doc");
-        paper = AppSingleton.getInstance().getPaper(doc);
+        paper = AppSingleton.getInstance().getPaper(Integer.parseInt(doc));
+        //AppSingleton.getInstance().addMessage(paper.getResumen());
     }
 }

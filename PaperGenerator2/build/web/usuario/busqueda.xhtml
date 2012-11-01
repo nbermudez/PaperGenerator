@@ -33,14 +33,16 @@
     </h:head>
     <h:body>
         <h:form id="form_busqueda" style="margin-top: 0px; margin-bottom: 0px;">
-
+            <p:messages id="msgs"/>
             <p:scrollPanel mode="native" style="height: 430px; border: 0px;">
                 <p:panel header="Opciones de Búsqueda" style="background: none; ">
                     <p:outputLabel for="filtros" value="Frases clave: " style="font-size: 10pt; font-weight: bold;"/>
                     <p:autoComplete maxResults="15" id="filtros" value="#{tbusquedaBean.filtros}" completeMethod="#{autoComplete.complete}"
-                                    multiple="true"/>
+                                    minQueryLength="3" size="500" multiple="true"/>
                     <p:commandButton value="Buscar" actionListener="#{tbusquedaBean.Filtrar()}" 
                                      update=":tabView:form_busqueda:papers" />
+                    <p:commandButton value="Limpiar" action="#{tbusquedaBean.Limpiar()}" 
+                                     update=":tabView:form_busqueda:filtros, :tabView:form_busqueda:papers"/>
                 </p:panel>
                 <br/>
                 <p:dataGrid value="#{tbusquedaBean.filteredPapers}" var="paper" id="papers"  
@@ -54,7 +56,7 @@
                     </f:facet>
                     <p:column>
                         <p:panel style="background: none; border: 0px;">
-                            <p:commandLink onclick="doit('#{paper.titulo}');" style="text-decoration: none;">
+                            <p:commandLink onclick="doit('#{paper.idPaper}');" style="text-decoration: none;">
                                 <table cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td>

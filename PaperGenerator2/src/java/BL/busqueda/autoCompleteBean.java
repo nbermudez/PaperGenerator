@@ -42,6 +42,7 @@ public class autoCompleteBean {
     
     public autoCompleteBean(){
         this.frases_clave = AppSingleton.getInstance().getFrasesClave();
+        this.frases_clave.addAll(AppSingleton.getInstance().getTitulosPaper());
         this.selectedTexts = new ArrayList<String>();
     }
 }

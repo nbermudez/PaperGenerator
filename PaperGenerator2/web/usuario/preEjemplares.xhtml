@@ -9,6 +9,7 @@
     </h:head>
     <h:body>
         <h:form id="todo">
+            <p:messages id="msgsE" />
             <p:accordionPanel style="height: 423px; background: none;" rendered="#{tree.visible1}">
                 <p:tab title="Volumen 1: 2012">
                     <table>
@@ -31,13 +32,12 @@
                                         </p:treeNode>  
 
                                         <p:treeNode type="document">
-                                            
                                             <p:lightBox iframe="true" width="1000px;" height="480px;">
                                                 
                                                 <h:outputLink value="faces/usuario/resumen.xhtml" style="width: 900px;">
                                                     <span class="ui-button-icon-left ui-icon ui-icon-document"/>
                                                     <h:outputText id="ptitulo" value="#{doc.titulo}." style="font-size: 10.5pt;"/>  
-                                                    <f:param name="doc" value="#{doc.titulo}"/>
+                                                    <f:param name="doc" value="#{doc.idPaper}"/>
                                                 </h:outputLink>
                                             </p:lightBox>   
                                             <p:tooltip for="ptitulo" style="margin-right: auto;" >

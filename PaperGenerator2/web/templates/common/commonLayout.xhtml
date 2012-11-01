@@ -23,42 +23,42 @@
             <div id="content">
                 <p:tabView style="width: 99.5%; height: 495px; margin-top: 2px;" id="tabView">
                     <p:tab title=">Inicio" >
-                        
-                            <ui:insert name="contentInicio" >
-                                <ui:include src="/templates/common/commonContent.xhtml" />
-                            </ui:insert>
-                        
+
+                        <ui:insert name="contentInicio" >
+                            <ui:include src="/templates/common/commonContent.xhtml" />
+                        </ui:insert>
+
                     </p:tab>
                     <p:tab title=">¿Quiénes somos?" >
-                            <ui:insert name="contentQuienesSomos" >
-                                <ui:include src="/templates/common/commonContent.xhtml" />
-                            </ui:insert>
+                        <ui:insert name="contentQuienesSomos" >
+                            <ui:include src="/templates/common/commonContent.xhtml" />
+                        </ui:insert>
                     </p:tab>
                     <p:tab title=">Índice" >
-                        
-                            <ui:insert name="contentEjemplares" >
-                                <ui:include src="/templates/common/commonContent.xhtml" />
-                            </ui:insert>
-                        
+
+                        <ui:insert name="contentEjemplares" >
+                            <ui:include src="/templates/common/commonContent.xhtml" />
+                        </ui:insert>
+
                     </p:tab>
                     <p:tab title=">Búsqueda" >
-                        
-                            <ui:insert name="contentBusqueda" >
-                                <ui:include src="/templates/common/commonContent.xhtml" />
-                            </ui:insert>
-                        
+
+                        <ui:insert name="contentBusqueda" >
+                            <ui:include src="/templates/common/commonContent.xhtml" />
+                        </ui:insert>
+
                     </p:tab>  
                     <p:tab title=">Escribir" rendered="#{user.logged}">                        
-                            <ui:insert name="contentEscribir" >
-                                <ui:include src="/templates/common/commonContent.xhtml" />
-                            </ui:insert>                        
+                        <ui:insert name="contentEscribir" >
+                            <ui:include src="/templates/common/commonContent.xhtml" />
+                        </ui:insert>                        
                     </p:tab>
-                    <p:tab title=">Enlaces" >
-                            <ui:insert name="contentEnlaces" >
-                                <ui:include src="/templates/common/commonContent.xhtml" />
-                            </ui:insert>
+                    <p:tab title=">Enlaces">
+                        <ui:insert name="contentEnlaces">                            
+                            <ui:include src="/templates/common/commonContent.xhtml" />
+                        </ui:insert>
                     </p:tab>
-                    
+
                 </p:tabView>
             </div>
 

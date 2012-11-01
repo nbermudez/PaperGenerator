@@ -61,3 +61,8 @@
     width: 1px;
     background-color: gray;
 }
+
+.enlaces{
+    background-image: url('../images/bg_enlaces.png');
+    background-position: center;
+}
