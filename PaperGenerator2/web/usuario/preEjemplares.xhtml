@@ -14,9 +14,9 @@
                     <table>
                         <tr>
                             <td>
-                                <a href="/PaperGenerator2/faces/resources/volumen/vol1.pdf" target="_new" style="color:blue;">
+                                <h:outputLink value="faces/usuario/volumenDisplay.xhtml" target="_blank">
                                     <p:graphicImage style="border: 0px; margin-left: 3px;" value="/resources/images/thumbnails/Volumen 1.png" height="325" />
-                                </a>
+                                </h:outputLink>                                
                             </td>
                             <td>
                                 <p:scrollPanel mode="native" style="height: 325px; background: none; width: 890px;">
@@ -27,7 +27,7 @@
 
                                         <p:treeNode expandedIcon="ui-icon-folder-open"  
                                                     collapsedIcon="ui-icon-folder-collapsed">  
-                                            <h:outputText value="#{doc}"/>  
+                                            <h:outputText value="#{doc}: Tabla de Contenido"/>  
                                         </p:treeNode>  
 
                                         <p:treeNode type="document">
