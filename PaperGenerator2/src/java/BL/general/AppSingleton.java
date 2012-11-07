@@ -154,6 +154,7 @@ public class AppSingleton {
             Query q = session.createQuery("select p\n" +
 "from Papers as p\n" +
 "where p.id="+id);
+            
             Papers p = (Papers)q.list().get(0);
             return p.getTitulo();
         }catch (Exception ex){
@@ -219,6 +220,7 @@ public class AppSingleton {
             Query q = session.createQuery("select p\n" +
 "from Papers as p\n" +
 "where p.titulo='"+titulo+"'");
+            
             t = (Papers)q.list().get(0);
             return new Paper(t.getTitulo());
         }catch (Exception ex){
