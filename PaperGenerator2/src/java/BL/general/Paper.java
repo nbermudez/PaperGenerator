@@ -4,6 +4,7 @@
  */
 package BL.general;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author alejandro
  */
-public class Paper{
+public class Paper implements Serializable{
     private String titulo;
     
     private String resumen;
