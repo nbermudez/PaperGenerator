@@ -53,7 +53,7 @@ public class treeController implements Serializable{
         root = new DefaultTreeNode("root", null);  
         visible1 = true;
   
-        TreeNode numero1 = new DefaultTreeNode("Número 1", root);  
+        TreeNode numero1 = new DefaultTreeNode("NÚMERO 1", root);  
         numero1.setExpanded(true);
   
         //Documents  

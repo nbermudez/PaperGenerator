@@ -167,7 +167,7 @@ public class AppSingleton {
         ArrayList<String> temp = new ArrayList<String>();
         try {
             org.hibernate.Transaction tx = session.beginTransaction();
-            Query q = session.createQuery("from Papers order by titulo");
+            Query q = session.createQuery("from Papers");
 
             papers = q.list();
             for (int i = 0; i < papers.size(); i++) {
