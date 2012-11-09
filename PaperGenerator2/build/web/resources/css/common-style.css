@@ -66,3 +66,7 @@
     background-image: url('../images/bg_enlaces.png');
     background-position: center;
 }
+
+galleria.ui-galleria-thumbnails-list{
+    width: 100px !important;
+}

@@ -29,30 +29,22 @@ public class galleriaController {
         images = new ArrayList<image>();
         image img;
         String folder = "";
-        img = new image(folder+"sps1.jpg", null);
+        img = new image(folder+"unitec sps.png", null);
         images.add(img);
-        img = new image(folder+"sps2.jpg", null);
+        img = new image(folder+"unitec tga.png", null);
         images.add(img);
-        img = new image(folder+"teg1.jpg", null);
+        img = new image(folder+"ceutec sps.png", null);
         images.add(img);
-        img = new image(folder+"lcb.jpg", null);
+        img = new image(folder+"ceutec tga.png", null);
         images.add(img);
-        img = new image(folder+"spsc.jpg", null);
+        img = new image(folder+"ceutec tga2.png", null);
         images.add(img);
-        img = new image(folder+"ceutecpra.jpg", null);
-        images.add(img);
-        img = new image(folder+"ceutecpro.jpg", null);
+        img = new image(folder+"ceutec la ceiba.png", null);
         images.add(img);
         
-        img = new image(folder+"01.jpg", null);
+        img = new image(folder+"render1.png", null);
         images.add(img);
-        img = new image(folder+"02.jpg", null);
+        img = new image(folder+"render2.png", null);
         images.add(img);
-        img = new image(folder+"03.jpg", null);
-        images.add(img);
-        img = new image(folder+"04.jpg", null);
-        images.add(img);
-        img = new image(folder+"11.jpg", null);
-        images.add(img);        
     }
 }
