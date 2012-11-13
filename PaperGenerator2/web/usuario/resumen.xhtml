@@ -8,21 +8,21 @@
         <title>Innovare. Revista de Ciencia y Tecnología.</title>
     </h:head>
 
-    <h:body >
+    <h:body>
         <h:form>
             <p:panel style="border:0px; background-color: whitesmoke; margin: 0 auto; alignment-adjust: 0;">
                 <h3>
                     <h:outputText value="#{resumen.paper.titulo}."/>
                 </h3>
+                <em>#{resumen.autoresString}</em>
+                <br/>
                 <h4>
                     Resumen:
                 </h4>
                 <h:outputText style="font-size: 11pt; font-family: serif;" value="#{resumen.paper.resumen}"/>
                 <br/>
-                <h4>
-                    Abstract:
-                </h4>
-                <h:outputText style="font-size: 11pt; font-family: serif;" value="#{resumen.paper.resumen_eng}"/>
+                <br/>
+                <em style="font-weight: bold;">Frases clave: #{resumen.palabrasClaveString}</em>
                 <br/>
                 <br/>
                 <p:commandButton value="Completo" ajax="false" onclick="this.form.target='_blank'"

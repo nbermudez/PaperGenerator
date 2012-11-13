@@ -32,14 +32,13 @@
                                         </p:treeNode>  
 
                                         <p:treeNode type="document">
-                                            <p:lightBox iframe="true" width="1000px;" height="480px;">
-                                                
+                                            <p:lightBox iframe="true" width="1000px;">                                                
                                                 <h:outputLink value="faces/usuario/resumen.xhtml" style="width: 900px;">
                                                     <span class="ui-button-icon-left ui-icon ui-icon-document"/>
                                                     <h:outputText id="ptitulo" value="#{doc.titulo}." style="font-size: 10.5pt;"/>  
                                                     <f:param name="doc" value="#{doc.idPaper}"/>
                                                 </h:outputLink>
-                                            </p:lightBox>   
+                                            </p:lightBox>
                                             <p:tooltip for="ptitulo" style="margin-right: auto;" >
                                                 <h3>Autores</h3>
                                                 <p:dataList value="#{doc.autores}" var="autor" itemType="square" style="background: none; background-color: transparent; border: 0px; ">

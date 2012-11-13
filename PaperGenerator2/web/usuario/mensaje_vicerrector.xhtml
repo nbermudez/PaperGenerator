@@ -2,55 +2,79 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Innovare. Revista de Ciencia y Tecnología.</title>
+        <h:outputStylesheet name="common-style.css" library="css"/>
     </h:head>
-    <h:body>
-
-        <table style="font-size: 10.8pt;">
-            <tr>
-                <td>
-                    <div style="float:left;width:50%; height: 21px;">
-                        <strong style="font-size: 15pt; font-style: normal; text-align: center;">
-                            Mensaje del Vicerrector Académico</strong>
-                    </div>
-                    <div style="float:right;width:50%; text-align: right;">
-                        <h:outputLink value="faces/usuario/editorial.xhtml" target="_blank">
-                            <h:outputText value = "Grupo Editorial" style="font-size: 10pt; font-weight: bold;"/>
-                        </h:outputLink>
-                    </div>
-                </td>
-                
-            </tr>
-            <tr>
-                <td>      
-                    <p:separator/>
-                    <table>
+    <h:body style="background-color: whitesmoke;">
+        
+            <div id="page" >
+                <div id="header">
+                    <ui:insert name="header" >
+                        <ui:include src="/templates/common/commonHeader.xhtml" />
+                    </ui:insert>
+                </div>
+                <p:panel>
+                    <table style="font-size: 10.8pt;">
                         <tr>
-                            <td width="30%">
-                                <h:graphicImage style="border: 0px; margin-left: 3px; height: 370px;" width="97%"
-                                                value="/resources/images/inicio_pic.jpg" />
+                            <td>
+                                <div style="float:left;width:600px; height: 21px;">
+                                    <strong style="font-size: 15pt; font-style: normal; text-align: center;">
+                                        Mensaje del Rector</strong>
+                                </div>
                             </td>
-                            <td width="70%" style="text-align: justify; font-size: 11pt;">
-                                <p>
-                                    Con mucho placer les doy la bienvenida a la 53&ordf; Olimp&iacute;ada Matem&aacute;tica Internacional, de la que la Argentina es pa&iacute;s anfitri&oacute;n y que se celebra en 2012 en la ciudad de Mar del Plata.</p>
-                                <p>
-                                    Por sobre todo, vivimos esta gran jornada de la juventud con entusiasmo contagioso; este largo medio siglo de competencias ha demostrado que los problemas matem&aacute;ticos son aqu&iacute; un medio, un recurso, pero que el objetivo es producir una fiesta del ingenio, de la creatividad y la solidaridad, compartiendo el lenguaje de los n&uacute;meros, tan universal como la m&uacute;sica.</p>
-                                <p>
-                                    &ldquo;Las matem&aacute;ticas &ndash; dijo Bertrand Russell - poseen no s&oacute;lo la verdad, sino cierta belleza suprema&rdquo; Los estudiantes de la escuela media, los miles de adolescentes que en m&aacute;s de cien pa&iacute;ses participan en sus Olimp&iacute;adas Nacionales de Matem&aacute;tica, de donde surgen las decenas de equipos que convergen en estos encuentros internacionales, han empezado a fascinarse con esta belleza que, sin duda, les servir&aacute; de pasaporte intelectual y &eacute;tico para ingresar al mundo adulto.</p>
-                                <p>
-                                    Nosotros, los mayores, los docentes, los gobernantes, los cient&iacute;ficos, somos m&aacute;s que simples anfitriones y organizadores. Somos tambi&eacute;n invitados de privilegio al espect&aacute;culo, no por esperado menos asombroso, siempre nuevo y original, del &aacute;lgebra y la geometr&iacute;a circulando con frescura, con gracia y con audacia en las mentes j&oacute;venes.</p>
-                                <p>
-                                    Ruben Hallu<br />
-                                    Rector de la Universidad de Buenos Aires</p>
+
+                        </tr>
+                        <tr>
+                            <td>      
+                                <p:separator/>
+                                <table>
+                                    <tr>
+                                        <td width="360">
+                                            <h:graphicImage style="border: 0px; margin-left: 3px;" width="346"
+                                                            value="/resources/images/rector.jpg" />
+                                        </td>
+                                        <td width="840" style="text-align: justify; font-size: 11pt;">
+                                            <p:scrollPanel style="height: 500px; padding-left: 20px;">
+                                                <p style="margin-right: 20px;">
+                                                    <strong>UNITEC</strong> tiene el gusto de poner a disposición del público su revista <strong style="font-style: italic;">Innovare</strong>, que por medio de entregas semestrales nos permitirá dar a conocer el cumplimiento de una de las funciones más importantes de toda universidad, como es la de generar conocimiento.
+                                                </p>
+                                                <p style="margin-right: 20px;">
+                                                    Este primer número de la revista es especialmente significativo, pues no sólo permite salir a luz con este medio de comunicación sino porque también reúne el esfuerzo de múltiples instancias institucionales que lo han hecho posible aunque no necesariamente el trabajo de ellas sea evidente en estas páginas. <strong style="font-style: italic;">Innovare</strong> se concreta en el producto de docentes y estudiantes de nuestra universidad por medio de ocho artículos donde se aplica a la realidad hondureña, técnicas vigentes en la producción intelectual mundial.
+                                                </p>
+                                                <p style="margin-right: 20px;">
+                                                    Como puede deducirse de los títulos a continuación, los artículos tratan de temáticas variadas, pero todos están focalizados en dar un aporte para volver a nuestro país cada vez más competitivo, así como también para fortalecer a sus instituciones, esperando contribuir  al desarrollo sostenible de la sociedad.
+                                                </p>
+                                                <p style="margin-right: 20px;">
+                                                    El lector encontrará tres artículos elaborados por docentes nuestros, como son: <em>Estableciendo estándares educativos de desempeño en Honduras</em>, de nuestro Decano de la Facultad de Postgrado, Dr. Jeffrey Lansdale y el Lic. Mauricio Estrada. Asimismo, <em>El arbitraje de decisiones del CIADI y la ley para la promoción y protección de inversiones de Honduras</em>, de la Abog. Claudia Castro; así como también el documento del Ing. Jared Ocampo titulado <em>Aplicando la metodología DMAIC-Sim a la mejora del tiempo de atención en migración en el aeropuerto de San Pedro Sula</em>.
+                                                </p>
+                                                <p style="margin-right: 20px;">
+                                                    Este primer número contiene asimismo un artículo elaborado por los estudiantes Adela Quant y Róger Díaz, titulado <em>Análisis del valor capital y posicionamiento de la marca Froots en San Pedro Sula</em>. Hay documentos de estudiantes que fueron asesorados por parejas de docentes, como los profesores Jared Ocampo y Jacobo Paredes que apoyaron a las maestrantes Jenny Lezama y Nora Sagastume en el artículo <em>Disminución de la variación del peso de paquetes del hilo SPP 130x2 en doblado</em>. Por su parte, los docentes Jacobo Paredes y Héctor Perdomo apoyaron a Nadia Reyes y Osiris Vásquez en la elaboración del documento <em>Proyecto de establecimiento de un hato lechero en Villanueva-Cortés</em>.  
+                                                </p>
+                                                <p style="margin-right: 20px;">
+                                                    Los siguientes documentos fueron asesorados por el profesor Jacobo Paredes: <em>Influencia del clima organizacional sobre la satisfacción laboral en los empleados de la municipalidad de Choloma</em>, de Olga Villamil y Wilfredo Sánchez; y <em>Reducción de defectos en el proceso de soldadura por ola de componentes electrónicos</em>, de Marvin Lara y Ana Lanza.
+                                                </p>
+                                                <p style="margin-right: 20px;">
+                                                    Como puede observar el lector, <strong style="font-style: italic;">Innovare</strong> sale a luz como un canal de comunicación de la producción científica y tecnológica de nuestra casa de estudios, <strong>UNITEC</strong>, esperando que la misma sirva para potenciar el trabajo realizado en Honduras por sus intelectuales, profesionales y empresarios. Este esfuerzo está orientado a que <strong style="font-style: italic;">Innovare</strong> sea una nueva contribución a la que ya hace nuestra universidad por medio de la docencia y la vinculación a la sociedad, para  que cada día podamos dejar a las nuevas generaciones un país más próspero, justo, sostenible e igualitario.
+                                                </p>
+                                                <p align="center">
+                                                    <strong>Luis Orlando Zelaya Medrano<br/>Rector UNITEC</strong>
+                                                </p>
+                                                <p align="center">
+                                                </p>
+                                            </p:scrollPanel>
+                                        </td>
+                                    </tr>
+                                </table>
+
                             </td>
                         </tr>
                     </table>
+                </p:panel>
+            </div>
 
-                </td>
-            </tr>
-        </table>
     </h:body>
 </html>
 
