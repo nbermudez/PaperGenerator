@@ -8,18 +8,18 @@
     </h:head>
     <h:body>    
         <map name="mensaje">
-            <area shape="rect" coords="820,180,967,200" href="faces/usuario/mensaje_vicerrector.xhtml" target="_blank" />
-            <area shape="rect" coords="997,180,1147,200" href="faces/usuario/editorial.xhtml" target="_blank" />
+            <area shape="rect" coords="572,180,824,223" href="faces/usuario/mensaje_vicerrector.xhtml" target="_blank" />
+            <area shape="rect" coords="892,180,1144,223" href="faces/usuario/editorial.xhtml" target="_blank" />
         </map>
 
         <div id="wrapper">
             <img id="layer1" src="resources/images/bg_inicio.png" height="430" width="100%"/>
-            <div id="layer2" style="position: absolute; margin-top: -420px; margin-left: 20px;">
+            <div id="layer2" style="position: absolute; margin-top: -420px; margin-left: 8px;">
                 <h:form style=" height: 430px;">
                     <p:panel style="width: 100%; height: 100%; background: none; border: 0px;">
-                        <p:galleria value="#{galleria.images}" var="image" effect="flash" panelWidth="708" panelHeight="357"
-                                    effectSpeed="300" frameHeight="40" frameWidth="50">
-                            <p:graphicImage value="faces/resources/images/galleria/#{image.name}" height="701" style="margin-top: 3px;" cache="true"/>
+                        <p:galleria value="#{galleria.images}" var="image" effect="flash" panelWidth="477" panelHeight="357"
+                                    effectSpeed="300" frameHeight="45" frameWidth="35">
+                            <p:graphicImage value="faces/resources/images/galleria/#{image.name}" width="477" style="margin-top: 3px;" cache="true"/>
                         </p:galleria>
                     </p:panel>
                 </h:form>
