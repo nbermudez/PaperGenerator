@@ -38,7 +38,7 @@
                 <p:panel header="Opciones de Búsqueda" style="background: none; ">
                     <p:outputLabel for="filtros" value="Frases clave: " style="font-size: 10pt; font-weight: bold;"/>
                     <p:autoComplete maxResults="15" id="filtros" value="#{tbusquedaBean.filtros}" completeMethod="#{autoComplete.complete}"
-                                    minQueryLength="3" size="500" multiple="true"/>
+                                    minQueryLength="3" size="500" multiple="true" queryDelay="50"/>
                     <p:commandButton value="Buscar" actionListener="#{tbusquedaBean.Filtrar()}" 
                                      update=":tabView:form_busqueda:papers" />
                     <p:commandButton value="Limpiar" action="#{tbusquedaBean.Limpiar()}" 
