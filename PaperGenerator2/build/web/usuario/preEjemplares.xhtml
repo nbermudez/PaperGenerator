@@ -10,7 +10,12 @@
     <h:body>
         <h:form id="todo">
             <p:messages id="msgsE" />
-            <p:accordionPanel style="height: 423px; background: none;" rendered="#{tree.visible1}">
+            <p:accordionPanel style="height: 423px; background: none;" rendered="#{tree.visible1}" activeIndex="1">
+                <p:tab title="Volumen 2: 2013">
+                    <h1>
+                        Próximamente...
+                    </h1>
+                </p:tab>
                 <p:tab title="Volumen 1: 2012">
                     <table>
                         <tr>
@@ -20,9 +25,9 @@
                                 </h:outputLink>                                
                             </td>
                             <td>
-                                <p:scrollPanel mode="native" style="height: 325px; background: none; width: 890px;">
+                                <p:scrollPanel  style="height: 325px; background: none; width: 840px;">
                                     <p:growl id="messages"/>
-                                    <p:tree style="width: 850px; border: 0px; background: none; font-size: 10.5pt;" id="tree"
+                                    <p:tree style="width: 1100px; border: 0px; background: none; font-size: 10.5pt;" id="tree"
                                             value="#{tree.root}" var="doc" 
                                             selection="#{tree.selected}" dynamic="true">  
 
@@ -32,14 +37,14 @@
                                         </p:treeNode>  
 
                                         <p:treeNode type="document">
-                                            <p:lightBox iframe="true" width="1000px;">                                                
-                                                <h:outputLink value="faces/usuario/resumen.xhtml" style="width: 900px;">
+                                            <p:lightBox iframe="true" width="1000px;" height="385px;">                                                
+                                                <h:outputLink value="faces/usuario/resumen.xhtml" style="width: 1000px;">
                                                     <span class="ui-button-icon-left ui-icon ui-icon-document"/>
-                                                    <h:outputText id="ptitulo" value="#{doc.titulo}." style="font-size: 10.5pt;"/>  
+                                                    <h:outputText id="ptitulo" value="#{doc.titulo}." style="font-size: 10.5pt; width: 750px;"/>  
                                                     <f:param name="doc" value="#{doc.idPaper}"/>
                                                 </h:outputLink>
                                             </p:lightBox>
-                                            <p:tooltip for="ptitulo" style="margin-right: auto;" >
+                                            <p:tooltip for="ptitulo" style="margin-right: auto;" showEffect="puff" hideEffect="puff">
                                                 <h3>Autores</h3>
                                                 <p:dataList value="#{doc.autores}" var="autor" itemType="square" style="background: none; background-color: transparent; border: 0px; ">
                                                     #{autor} &nbsp; &nbsp; &nbsp;
@@ -61,11 +66,7 @@
                         </tr>
                     </table>
                 </p:tab>
-                <p:tab title="Volumen 2: 2013">
-                    <h1>
-                        Próximamente...
-                    </h1>
-                </p:tab>
+                
             </p:accordionPanel>
 
             <p:panel rendered="#{!tree.visible1}"  style="border: 0px;">
