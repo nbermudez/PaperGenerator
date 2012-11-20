@@ -4,6 +4,7 @@
  */
 package BL.login;
 
+import BL.general.AppSingleton;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -80,4 +81,51 @@ public class Helperclass {
         return false;
 
     }
+    
+    public void registrar(String nombre,String apellidos,String correo,String pw1,String pw2,boolean terminos)
+    {
+        try {
+            
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Usuarios user = new Usuarios();
+            UsuariosNoAprobados una = new UsuariosNoAprobados();
+            if(!nombre.isEmpty() && !apellidos.isEmpty() && !correo.isEmpty() && !pw1.isEmpty() && !pw2.isEmpty())
+        {
+            if(terminos == true){
+            
+            if(pw1.equals(pw2)){
+                user.setNombres(nombre);
+                una.setNombres(nombre);
+                user.setApellidos(apellidos);
+                una.setApellidos(apellidos);
+                user.setCorreo(correo);
+                una.setCorreo(correo);
+                user.setPassword(pw1);
+                una.setPassword(pw1);
+                una.setAprobado(false);
+                session.save(user);
+                session.save(una);
+                tx.commit();
+                
+                AppSingleton.getInstance().addMessage("Success!");
+                
+              
+            }
+            
+                
+            }
+            
+       
+        
+        }
+        
+    }
+        catch(Exception ex)
+        {
+            
+        }
+        
+       
+    }
 }
+

@@ -129,7 +129,7 @@ public class tableController {
 
     }
 
-    public void redirect() {
+    public static void redirect() {
         FacesContext fc = FacesContext.getCurrentInstance();
         ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
 
