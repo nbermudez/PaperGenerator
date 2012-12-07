@@ -5,10 +5,13 @@
 package BL.login;
 
 import BL.general.AppSingleton;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import tablas.UsuariosNoAprobados;
 
 /**
  *
@@ -18,16 +21,17 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class registrarseBean {
     
-    Helperclass helper;
+    Helperclass helper = new Helperclass();
     private String nombre;
     private String apellidos;
     private String correo;
     private String pw1;
     private String pw2;
     private boolean terminos;
+    private String correonoap;
     public void registrarse(){
        // AppSingleton.getInstance().addMessage("Registrandose...");
-        helper = new Helperclass();
+        
         
         if (helper.getUser(getCorreo()) == null)
                 {
@@ -41,7 +45,25 @@ public class registrarseBean {
         }
         
     }
-
+    public ArrayList<String> getUsersNoAprobados(){
+        ArrayList<String> lol = new ArrayList<String>();
+        List<UsuariosNoAprobados> temp = helper.getUsuariosNoAprobados();
+        for(int i=0;i<temp.size();i++){
+            lol.add(temp.get(i).getCorreo());
+        }
+        
+      /*  lol.add("lol");
+        lol.add("lol2");
+        lol.add("lol3");
+        lol.add("lol4");*/
+        
+        return lol;
+    }
+    
+    public void aprobar(){
+        helper.Aprobar(this.correonoap);
+         
+    }
     /**
      * @return the nombre
      */
@@ -124,6 +146,20 @@ public class registrarseBean {
      */
     public void setTerminos(boolean terminos) {
         this.terminos = terminos;
+    }
+
+    /**
+     * @return the correonoap
+     */
+    public String getCorreonoap() {
+        return correonoap;
+    }
+
+    /**
+     * @param correonoap the correonoap to set
+     */
+    public void setCorreonoap(String correonoap) {
+        this.correonoap = correonoap;
     }
     
     

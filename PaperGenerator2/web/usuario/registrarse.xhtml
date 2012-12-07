@@ -4,48 +4,48 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-     <h:head>
+    <h:head>
         <title>Innovare. Revista de Ciencia y Tecnología.</title>
         <h:outputStylesheet name="common-style.css" library="css"/>
     </h:head>
     <h:body>
         <div id="page" >
-         <div id="header">
-                    <ui:insert name="header" >
-                        <ui:include src="/templates/common/commonHeader.xhtml" />
-                    </ui:insert>
-                </div>
-             <div id="content">
-        <h:form style="margin-top: 0px; margin-left: 110px; margin-right: 110px;">
-            <p:growl id="messagesLogin"/>
-            <p:panel header="Registrarse" >
-                <h:panelGrid columns="2">
-                    <h:outputLabel  value="Nombre:"/>
-                    <p:inputText requiredMessage="Nombre requerido" required="true" style="width: 166px;" value="#{registrar.nombre}"/>
-                    <h:outputLabel  value="Apellidos:"/>
-                    <p:inputText requiredMessage="Apellido requerido" required="true" style="width: 166px;" value="#{registrar.apellidos}"/>
-                    <h:outputLabel  value="Correo:"/>
-                    <p:inputText requiredMessage="Correo requerido" required="true" style="width: 166px;" value="#{registrar.correo}"/>
-                    <h:outputLabel  value="Contraseña:"/>
-                    <p:password id="pw1" feedback="true" match="pw2" required="true" style="width: 166px;" value="#{registrar.pw1}"
-                                validatorMessage="Contraseñas no concuerdan" 
-                                requiredMessage="Contraseña requerida"/>
-                    <h:outputLabel  value="Confirmar contraseña:"/>
-                    <p:password id="pw2" required="true" style="width: 166px;"
-                                requiredMessage="Debe confirmar su contraseña" value="#{registrar.pw2}"/>
+            <div id="header">
+                <ui:insert name="header" >
+                    <ui:include src="/templates/common/commonHeader.xhtml" />
+                </ui:insert>
+            </div>
+            <div id="content">
+                <h:form style="margin-top: 0px; margin-left: 110px; margin-right: 110px;">
+                    <p:growl id="messagesLogin"/>
+                    <p:panel header="Registrarse" >
+                        <h:panelGrid columns="2">
+                            <h:outputLabel  value="Nombre:"/>
+                            <p:inputText requiredMessage="Nombre requerido" required="true" style="width: 166px;" value="#{registrar.nombre}"/>
+                            <h:outputLabel  value="Apellidos:"/>
+                            <p:inputText requiredMessage="Apellido requerido" required="true" style="width: 166px;" value="#{registrar.apellidos}"/>
+                            <h:outputLabel  value="Correo:"/>
+                            <p:inputText requiredMessage="Correo requerido" required="true" style="width: 166px;" value="#{registrar.correo}"/>
+                            <h:outputLabel  value="Contraseña:"/>
+                            <p:password id="pw1" feedback="true" match="pw2" required="true" style="width: 166px;" value="#{registrar.pw1}"
+                                        validatorMessage="Contraseñas no concuerdan" 
+                                        requiredMessage="Contraseña requerida"/>
+                            <h:outputLabel  value="Confirmar contraseña:"/>
+                            <p:password id="pw2" required="true" style="width: 166px;"
+                                        requiredMessage="Debe confirmar su contraseña" value="#{registrar.pw2}"/>
 
 
-                </h:panelGrid>
-                <br/>
-                <p:selectBooleanCheckbox id="check" value="#{registrar.terminos}"/>
-                <p:outputLabel for="check" value="He leído y acepto los "/>
-                <a href="../../faces/resources/files/terms.pdf" target="_new" style="color:blue;">términos</a>
-                <br/>
-                <p:commandButton value="Registrarse" action="#{registrar.registrarse()}" 
-                                 update="messagesLogin"/>
-            </p:panel>
-        </h:form>
-             </div>  
+                        </h:panelGrid>
+                        <br/>
+                        <p:selectBooleanCheckbox id="check" value="#{registrar.terminos}"/>
+                        <p:outputLabel for="check" value="He leído y acepto los "/>
+                        <a href="../../faces/resources/files/terms.pdf" target="_new" style="color:blue;">términos</a>
+                        <br/>
+                        <p:commandButton value="Registrarse" action="#{registrar.registrarse()}" 
+                                         update="messagesLogin"/>
+                    </p:panel>
+                </h:form>
+            </div>  
             <div id="footer">
                 <ui:insert name="footer" >
                     <ui:include src="/templates/common/commonFooter.xhtml" />

@@ -9,6 +9,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import hibernate_util.NewHibernateUtil;
+import java.util.ArrayList;
 import tablas.Usuarios;
 import tablas.UsuariosNoAprobados;
 //import NewHibernateUtil;
@@ -56,11 +57,53 @@ public class Helperclass {
 
     }
 
+    public List<UsuariosNoAprobados> getUsuariosNoAprobados(){
+        List<UsuariosNoAprobados> users = null;
+         List<String> correos = new ArrayList<String>();
+
+        try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createQuery("from UsuariosNoAprobados where aprobado=0");
+            users = (List<UsuariosNoAprobados>) q.list();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        /*for(UsuariosNoAprobados u:users){
+            
+            if(!u.isAprobado()){
+            correos.add(u.getCorreo());
+            }
+        }*/
+        
+        return users;
+       
+        
+    }
+    public void Aprobar(String correo){
+        UsuariosNoAprobados user = null;
+           try {
+            org.hibernate.Transaction tx = session.beginTransaction();
+            Query q = session.createQuery("from UsuariosNoAprobados as user where user.correo='" + correo + "'");
+            user = ((List<UsuariosNoAprobados>) q.list()).get(0);
+            user.setAprobado(true);
+             AppSingleton.getInstance().addMessage("Usuario fue aprobado correctamente");
+            tx.commit();
+           
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+           
+          
+           
+    }
     public boolean isAprobado(String correo) {
         List<UsuariosNoAprobados> users = null;
 
         try {
+            
             org.hibernate.Transaction tx = session.beginTransaction();
+            
             Query q = session.createQuery("from UsuariosNoAprobados");
             users = (List<UsuariosNoAprobados>) q.list();
 
