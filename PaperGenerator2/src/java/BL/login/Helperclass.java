@@ -57,14 +57,14 @@ public class Helperclass {
 
     }
 
-    public List<UsuariosNoAprobados> getUsuariosNoAprobados(){
-        List<UsuariosNoAprobados> users = null;
+    public ArrayList<UsuariosNoAprobados> getUsuariosNoAprobados(){
+        ArrayList<UsuariosNoAprobados> users = null;
          List<String> correos = new ArrayList<String>();
 
         try {
             org.hibernate.Transaction tx = session.beginTransaction();
             Query q = session.createQuery("from UsuariosNoAprobados where aprobado=0");
-            users = (List<UsuariosNoAprobados>) q.list();
+            users = (ArrayList<UsuariosNoAprobados>) q.list();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
