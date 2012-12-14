@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -38,21 +39,22 @@
                     <p:menuitem  value="Formato de Conclusiones" actionListener="#{menuBean.configConclusiones()}" update="messages"/>
                     <p:menuitem  value="Formato de Agradecimiento" actionListener="#{menuBean.configAgradecimientos()}" update="messages"/>
                 </p:submenu>
-
+                <p:menuitem value="Generar"></p:menuitem>
             </p:menubar>
             <p:dashboard model="#{dashboard.model}" >
                 <p:panel id="titulo" header="Titulo" toggleable="true" collapsed="true">
-                    
+                    <h:inputTextarea style="width: 250px; height: 45px"></h:inputTextarea>
                 </p:panel>
                 <p:panel id="abstract" header="Abstract" toggleable="true" collapsed="true">
-
+                    <h:inputTextarea style="width: 500px; height: 400px"></h:inputTextarea>
                 </p:panel>
                 <p:panel id="frases" header="Frases Clave" toggleable="true" collapsed="true">
-
+                    <h:inputTextarea style="width: 250px; height: 200px"></h:inputTextarea>
                 </p:panel>
                 <p:panel id="intro" header="Introduccion" toggleable="true" collapsed="true">
-
+                    <h:inputTextarea style="width: 400px; height: 300px"></h:inputTextarea>
                 </p:panel>
+                
             </p:dashboard>
         </h:form>
     </h:body>
