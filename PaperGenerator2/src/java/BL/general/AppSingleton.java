@@ -10,6 +10,7 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import org.hibernate.Query;
+
 import org.hibernate.Session;
 import tablas.*;
 
@@ -31,22 +32,59 @@ public class AppSingleton {
     }
     
     //<editor-fold defaultstate="collapsed" desc="User Related">
-    public List<Permisos> getPermisos(String correo) {
-        List<Permisos> temp = null;
+    public List<RolesXUsuariosId> getRoles(String correo) {
+        List<RolesXUsuariosId> temp = null;
+        
+        
         try{
-            Query q = session.createQuery("select p\n" +
-"from PermisosXRoles as p\n" +
-"where p.titulo='"+correo+"'");
+            Query q = session.createQuery("select rxu.id\n" +
+"from RolesXUsuarios as rxu\n" +
+"where rxu.id.correo='"+correo+"'");
             temp = q.list();
+            
+           
+            
+       
+            
         }catch (Exception ex){
             String a = ex.getMessage();
+            
         }
+        
+         
+        
+        
         return temp;
+    }
+    
+    public List<PermisosXRolesId>getPermisos(int Rol)
+    {
+        List<PermisosXRolesId> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("select  pxr.id\n" +
+"from PermisosXRoles as pxr\n" +
+"where pxr.id.idRol="+Rol);
+            
+            temp = q.list();
+            
+            
+        }catch(Exception ex)
+        {
+             String a = ex.getMessage();
+        }
+        
+        
+        return temp;
+        
     }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     Session session = NewHibernateUtil.getSessionFactory().getCurrentSession();
+   
+  
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Papers Related">
@@ -278,4 +316,242 @@ public class AppSingleton {
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
     //</editor-fold>
+    
+    
+    
+     //<editor-fold defaultstate="collapsed" desc="Select Tablas Formato">   
+    
+    public ArrayList<FormatoAgradecimiento> Agradecimientos()
+    {
+        ArrayList<FormatoAgradecimiento> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoAgradecimiento");
+            
+            temp = (ArrayList<FormatoAgradecimiento>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+    
+    
+     public ArrayList<FormatoAnexo> Anexo()
+    {
+        ArrayList<FormatoAnexo> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoAnexo");
+            
+            temp = (ArrayList<FormatoAnexo>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+     
+     
+    public ArrayList<FormatoConclusiones> Conclusiones()
+    {
+        ArrayList<FormatoConclusiones> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoConclusiones");
+            
+            temp = (ArrayList<FormatoConclusiones>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+    
+    
+    public ArrayList<FormatoIntroduccion> Introduccion()
+    {
+        ArrayList<FormatoIntroduccion> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoIntroduccion");
+            
+            temp = (ArrayList<FormatoIntroduccion>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+    
+    public ArrayList<FormatoMetodologia> Metodologia()
+    {
+        ArrayList<FormatoMetodologia> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoMetodologia");
+            
+            temp = (ArrayList<FormatoMetodologia>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+    
+    
+    public ArrayList<FormatoPalabrasClave> PalabrasClave()
+    {
+        ArrayList<FormatoPalabrasClave> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoPalabrasClave");
+            
+            temp = (ArrayList<FormatoPalabrasClave>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+    
+    public ArrayList<FormatoReferencias> Referencias()
+    {
+        ArrayList<FormatoReferencias> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoReferencias");
+            
+            temp = (ArrayList<FormatoReferencias>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+    
+      public ArrayList<FormatoResultados> Results()
+    {
+        ArrayList<FormatoResultados> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoResultados");
+            
+            temp = (ArrayList<FormatoResultados>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+      
+      
+      public ArrayList<FormatoResumen> Resumen()
+    {
+        ArrayList<FormatoResumen> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoResumen");
+            
+            temp = (ArrayList<FormatoResumen>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+    
+          public ArrayList<FormatoRevisionLiteratura> RevisionLiteraria()
+    {
+        ArrayList<FormatoRevisionLiteratura> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoRevisionLiteratura");
+            
+            temp = (ArrayList<FormatoRevisionLiteratura>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+    
+          
+          public ArrayList<FormatoTitulo> FormatoTitulo()
+    {
+        ArrayList<FormatoTitulo> temp = null;
+        try{
+            
+            
+            Query q = session.createQuery("from FormatoTitulo");
+            
+            temp = (ArrayList<FormatoTitulo>) q.list();
+            
+           
+        }catch(Exception ex)
+        {
+            String a = ex.getMessage();
+            
+        }
+         return temp;
+        
+    }
+    
+    
+    
+    
+    
+    //</editor-fold>
+    
+    
 }

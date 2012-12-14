@@ -14,6 +14,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import tablas.Permisos;
+import tablas.PermisosXRolesId;
+import tablas.RolesXUsuariosId;
 import tablas.Usuarios;
 
 /**
@@ -31,13 +33,16 @@ public class tableController {
     private Usuarios current;
     private int selectedItemIndex;
     
-    private List<Permisos> permisos;
+    
+    private List<PermisosXRolesId> permisos;
+    private List<RolesXUsuariosId> roles;
 
     public tableController() {
 
         helper = new Helperclass();
         fallo = false;
         logged = false;
+        canEdit = false;
 
     }
 
@@ -88,6 +93,15 @@ public class tableController {
     }
     String name;
     boolean logged;
+    boolean canEdit;
+
+    public boolean isCanEdit() {
+        return canEdit;
+    }
+
+    public void setCanEdit(boolean canEdit) {
+        this.canEdit = canEdit;
+    }
 
     public boolean isFallo() {
         return fallo;
@@ -104,7 +118,46 @@ public class tableController {
             if (usuario.getPassword().equals(pass)) {
                 if (helper.isAprobado(usuario.getCorreo())) {
                     name = "Bienvenido, " + usuario.getNombres() + " " + usuario.getApellidos();
-                    permisos = AppSingleton.getInstance().getPermisos(usuario.getCorreo());
+                    
+                    //Sacar Roles
+                    roles = AppSingleton.getInstance().getRoles(usuario.getCorreo());
+                    
+                    
+                    if(roles!=null)
+                    {       
+                        
+                       for(int e =0; e<roles.size(); e++)
+                       {
+                           
+                           int nRol = roles.get(e).getIdRol();
+                           permisos = AppSingleton.getInstance().getPermisos(nRol);
+                            
+                            if(permisos!=null)
+                            {
+                                 for(int i=0; i<permisos.size(); i++)
+                                 {
+                            
+                                    if(permisos.get(i).getIdPermiso()==1)
+                                    {
+                                        canEdit=true;
+                                
+                                    }
+                            
+                            
+                            
+                                  }
+                        
+                            }
+                       }
+                    }
+                    
+                    
+                    
+                    
+                     
+                    
+                    
+                    
                     logged = true;
                     fallo = false;
                     AppSingleton.getInstance().addMessage(name);
@@ -128,9 +181,14 @@ public class tableController {
 
 
     }
-
     
-    public static void redirect() {
+    public boolean canEditFormat() throws IOException {
+        
+    
+        return canEdit;
+    }
+
+    public void redirect() {
         FacesContext fc = FacesContext.getCurrentInstance();
         ConfigurableNavigationHandler nav = (ConfigurableNavigationHandler) fc.getApplication().getNavigationHandler();
 
@@ -140,9 +198,12 @@ public class tableController {
         nav.performNavigation("main");
 
     }
+    
+  
 
     public void logout() {
         logged = false;
+        canEdit = false;
         this.user = "";
         //name="";
         redirect();

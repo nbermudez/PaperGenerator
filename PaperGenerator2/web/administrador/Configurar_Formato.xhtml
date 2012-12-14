@@ -12,17 +12,20 @@
         <p:panel>
             <p:graphicImage id="head_image" url="/resources/images/logo_unitec.png" width="400"/>
             <p:panel style="background: none;">
-                <h:outputText value="Solutio: Configuración de Formato " style="font-size: 32px;"/>
+                <h:outputText value="Innovare: Configuración de Formato " style="font-size: 32px;"/>
                 <br/>
                 <h:outputText rendered="#{menuBean.configBean.render_seccion_actual}" value="Configurando: #{menuBean.configBean.currentSeccion}" style="font-size: 14px;"/>
             </p:panel>
         </p:panel>
-        <p:menubar autoDisplay="false">  
+
+	<p:menubar autoDisplay="false">  
             <p:submenu label="Archivo" icon="ui-icon-document"> 
                 <p:menuitem value="Guardar" actionListener="#{menuBean.save()}" icon="ui-icon-disk" update="messages"/>  
                 <p:separator />  
                 <p:menuitem value="Salir" action="index" />  
             </p:submenu>  
+
+
             <p:submenu label="Configurar Encabezado" icon="ui-icon-gear">
                 <p:menuitem  value="Formato de Titulo" actionListener="#{menuBean.configTitulo()}" update="layout,messages"/>
                 <p:menuitem  value="Formato de Autores" actionListener="#{menuBean.configAutores()}" update="layout,messages"/>
@@ -60,7 +63,7 @@
             <p:layoutUnit id="LUnit1" header="Sample" position="center" style="height: 450px;">
 
                 <p:editor  controls="bold italic underline | font size style | color highlight removeformat | undo redo | cut copy paste pastetext"
-                           width="867" required="false" requiredMessage="Debe definir el formato de la sección"/>
+                           width="867" required="false" requiredMessage="Debe definir el formato de la sección" value="#{menuBean.configBean.formato}"/>
 
             </p:layoutUnit>
             <p:layoutUnit id="LUnit2" header="Configuraciones" position="west" collapsible="true" >
@@ -70,7 +73,7 @@
                             <p:outputLabel for="min_palabras" value="Mínimo de Palabras:" rendered="#{menuBean.configBean.render_min_palabras}"/>
                         </td>
                         <td>
-                            <p:spinner id="min_palabras" required="true" rendered="#{menuBean.configBean.render_min_palabras}"/>
+                            <p:spinner id="min_palabras" required="true" rendered="#{menuBean.configBean.render_min_palabras}" value="#{  menuBean.configBean.min_palabras}" /> 
                         </td>
                     </tr>
                     <tr>
@@ -78,7 +81,7 @@
                             <p:outputLabel for="max_palabras" value="Máximo de Palabras:" rendered="#{menuBean.configBean.render_max_palabras}"/>
                         </td>
                         <td>
-                            <p:spinner id="max_palabras" required="true" rendered="#{menuBean.configBean.render_max_palabras}"/>
+                            <p:spinner id="max_palabras" required="true" rendered="#{menuBean.configBean.render_max_palabras}" value="#{menuBean.configBean.max_palabras}"/>
                         </td>
                     </tr>
                     <tr>
@@ -102,7 +105,7 @@
                             <p:outputLabel for="columnas_seccion" value="Columnas Sección:" rendered="#{menuBean.configBean.render_columnas_seccion}"/>
                         </td>
                         <td>
-                            <p:spinner id="columnas_seccion" required="true" rendered="#{menuBean.configBean.render_columnas_seccion}"/>
+                            <p:spinner id="columnas_seccion" required="true" rendered="#{menuBean.configBean.render_columnas_seccion}" value="#{menuBean.configBean.numColumnas}"/>
                         </td>
                     </tr>
                     <tr>
@@ -110,7 +113,7 @@
                             <p:outputLabel for="opcional" value="Opcional:" rendered="#{menuBean.configBean.render_opcional}"/>
                         </td>
                         <td>
-                            <p:selectBooleanCheckbox id="opcional" required="true" rendered="#{menuBean.configBean.render_opcional}"/>
+                            <p:selectBooleanCheckbox id="opcional" required="true" rendered="#{menuBean.configBean.render_opcional}" value="#{menuBean.configBean.opcional}"/>
                         </td>
                     </tr>
                     <tr>
@@ -118,7 +121,7 @@
                             <p:outputLabel for="enumerables" value="Enumerables:" rendered="#{menuBean.configBean.render_enumerable}"/>
                         </td>
                         <td>
-                            <p:selectBooleanCheckbox id="enumerables" required="true" rendered="#{menuBean.configBean.render_enumerable}"/>
+                            <p:selectBooleanCheckbox id="enumerables" required="true" rendered="#{menuBean.configBean.render_enumerable}" value="#{menuBean.configBean.enumerable}"/>
                         </td>
                     </tr>
                 </table>
@@ -136,7 +139,7 @@
                                 <p:commandButton value="&gt;" actionListener="#{menuBean.configBean.agregarRequisito()}" update="requisitos,req" />
                                 <br/>
                                 <br/>
-                                <p:commandButton value="&lt;" actionListener="#{menuBean.configBean.quitarRequisito()}" update="requisitos"/>
+                                <p:commandButton value="&lt;" actionListener="#{menuBean.configBean.quitarRequisito()}"  update="requisitos"/>
 
                             </td>
                             <td>
@@ -160,4 +163,3 @@
         </p:layout>
     </h:form>
 </html>
-
