@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <a href="../resources/css/common-style.css" type="text/css"/>
+    </h:head>
+    <h:body>
+        <p:panel id="main" style="border: 0px; background: none;">
+            <p:growl id="messagesLogin"/>
+            <p:panelGrid id="acciones" columns="3" rendered="#{user.logged}" 
+                         style="background: none; border: 0px; margin: 0 auto; margin-top: 110px;">
+                <h:outputLink value="faces/administrador/Configurar_Formato.xhtml" target="_blank">
+                    <p:graphicImage style="border: 0px; width: 150px;" value="/resources/images/thumbnails/4.jpg" width="150" />
+                </h:outputLink>
+                <br/>
+                <h:outputLink value="faces/usuario/escribiendo.xhtml" target="_blank">
+                    <p:graphicImage style="border: 0px; width: 150px;" value="/resources/images/thumbnails/7.jpg" width="150" />
+                </h:outputLink>
+                <br/>
+                <h:outputLink value="faces/usuario/moderar.xhtml" target="_blank">
+                    <p:graphicImage style="border: 0px; width: 150px;" value="/resources/images/thumbnails/7.jpg" width="150" />
+                </h:outputLink>
+            </p:panelGrid>
+        </p:panel>
+    </h:body>
+</html>
+
