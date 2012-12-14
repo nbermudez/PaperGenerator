@@ -4,10 +4,15 @@
  */
 package BL.general;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -102,5 +107,47 @@ public class PDFHandler {
     }
     
     public PDFHandler(){
+    }
+    
+    
+    public void GeneratePDF()
+    {
+        Document document = new Document(); 
+       
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ExternalContext externalContext = facesContext.getExternalContext();
+        HttpServletResponse response = (HttpServletResponse) externalContext.getResponse();                                       
+
+        BufferedOutputStream output = null;
+
+        try {          
+                response.setContentType("application/pdf");
+                PdfWriter.getInstance(document, response.getOutputStream());      
+                document.open();        
+                document.add(new Paragraph("Hello World!"));                
+                document.close();
+            
+                // Init servlet response.
+                response.reset();
+                response.setHeader("Content-Type", "application/pdf");
+                //response.setHeader("Content-Length", String.valueOf(blob.length));
+                response.setHeader("Content-Disposition", "inline; filename=\"PDF.pdf\"");
+                output = new BufferedOutputStream(response.getOutputStream(), 10240);
+                
+                // Finalize task.
+                output.flush();            
+        }
+        catch(Exception ex)
+        {
+        } 
+        finally {
+            // Gently close streams.
+            close(output);
+        }            
+
+        // Inform JSF that it doesn't need to handle response.
+        // This is very important, otherwise you will get the following exception in the logs:
+        // java.lang.IllegalStateException: Cannot forward after response has been committed.
+        facesContext.responseComplete();
     }
 }
