@@ -51,16 +51,16 @@
             </p:menubar>
             <p:dashboard model="#{dashboard.model}" >
                 <p:panel id="titulo" header="Titulo" toggleable="true" collapsed="true">
-                    <h:inputTextarea style="width: 250px; height: 45px"></h:inputTextarea>
+                    <h:inputTextarea style="width: 250px; height: 45px" value="#{pdf.titulo}"></h:inputTextarea>
                 </p:panel>
                 <p:panel id="abstract" header="Abstract" toggleable="true" collapsed="true">
-                    <h:inputTextarea style="width: 500px; height: 400px"></h:inputTextarea>
+                    <h:inputTextarea style="width: 500px; height: 400px" value="#{pdf.abs}"></h:inputTextarea>
                 </p:panel>
                 <p:panel id="frases" header="Frases Clave" toggleable="true" collapsed="true">
-                    <h:inputTextarea style="width: 250px; height: 200px"></h:inputTextarea>
+                    <h:inputTextarea style="width: 250px; height: 200px" value="#{pdf.frases}"></h:inputTextarea>
                 </p:panel>
                 <p:panel id="intro" header="Introduccion" toggleable="true" collapsed="true">
-                    <h:inputTextarea style="width: 400px; height: 300px"></h:inputTextarea>
+                    <h:inputTextarea style="width: 400px; height: 300px" value="#{pdf.intro}"></h:inputTextarea>
                  
                     
                 </p:panel>

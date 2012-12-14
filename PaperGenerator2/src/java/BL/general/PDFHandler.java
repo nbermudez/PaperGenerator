@@ -25,6 +25,9 @@ import javax.servlet.http.HttpServletResponse;
 public class PDFHandler {
 
     private String titulo;
+    private String abs;
+    private String frases;
+    private String intro;
     private int IdPaper;
 
     public String getTitulo() {
@@ -124,7 +127,11 @@ public class PDFHandler {
                 response.setContentType("application/pdf");
                 PdfWriter.getInstance(document, response.getOutputStream());      
                 document.open();        
-                document.add(new Paragraph("Hello World!"));                
+                document.add(new Paragraph(titulo));                
+                document.add(new Paragraph(abs)); 
+                document.add(new Paragraph(frases)); 
+                document.add(new Paragraph(intro)); 
+                
                 document.close();
             
                 // Init servlet response.
@@ -149,5 +156,47 @@ public class PDFHandler {
         // This is very important, otherwise you will get the following exception in the logs:
         // java.lang.IllegalStateException: Cannot forward after response has been committed.
         facesContext.responseComplete();
+    }
+
+    /**
+     * @return the abs
+     */
+    public String getAbs() {
+        return abs;
+    }
+
+    /**
+     * @param abs the abs to set
+     */
+    public void setAbs(String abs) {
+        this.abs = abs;
+    }
+
+    /**
+     * @return the frases
+     */
+    public String getFrases() {
+        return frases;
+    }
+
+    /**
+     * @param frases the frases to set
+     */
+    public void setFrases(String frases) {
+        this.frases = frases;
+    }
+
+    /**
+     * @return the intro
+     */
+    public String getIntro() {
+        return intro;
+    }
+
+    /**
+     * @param intro the intro to set
+     */
+    public void setIntro(String intro) {
+        this.intro = intro;
     }
 }
