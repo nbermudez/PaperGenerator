@@ -58,6 +58,13 @@
                             <ui:include src="http://localhost:8084/PaperGenerator2/faces/usuario/enlaces.jsf" />
                         </ui:insert>
                     </p:tab>
+                    <p:tab title=">Formato"  rendered="#{user.canEdit}"  >
+
+                        <ui:insert name="EditarFormato" >
+                            <ui:include src="/administrador/Configurar_Formato.xhtml" />
+                        </ui:insert>
+
+                    </p:tab>  
 
                 </p:tabView>
             </div>

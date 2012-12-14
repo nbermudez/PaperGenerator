@@ -106,4 +106,42 @@ public class HelperclassTest {
         assertEquals(expResult, result);
     }
     
+    /**
+     * Test of registrar method, of class Helperclass.
+     */
+    //Prueba que se pudo registrar el usuario.
+    @Test
+    public void testRegistrar() {
+        System.out.println("registrar");
+        String nombre = "Nombre1";
+        String apellido = "Apellido1";
+        String correo = "test.usuario.potato@unitec.edu";
+        String p2 = "123";
+        boolean terminos = true;
+        
+        Helperclass instance = new Helperclass();
+        //instance.registrar(nombre, apellido, correo, p2, p2, terminos);
+        
+        
+        String expResult = correo;
+        Usuarios result = instance.getUser(correo);        
+        if(result == null)
+            fail("No se registro el usuario");
+        else
+            assertEquals(expResult, result.getCorreo());
+    }
+    
+    @Test
+    public void testAprobar() {
+        System.out.println("aprobar");
+        String correo = "test.usuario.potato@unitec.edu";
+        
+        Helperclass instance = new Helperclass();
+        instance.Aprobar(correo);
+        
+        boolean expResult = true;
+        boolean result = instance.isAprobado(correo);
+        assertEquals(expResult, result);
+    }
+    
 }
