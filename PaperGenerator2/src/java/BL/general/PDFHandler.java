@@ -110,8 +110,8 @@ public class PDFHandler {
     }
     
     
-    public void GeneratePDF()
-    {
+    public void generatePDF(){
+    
         Document document = new Document(); 
        
         FacesContext facesContext = FacesContext.getCurrentInstance();

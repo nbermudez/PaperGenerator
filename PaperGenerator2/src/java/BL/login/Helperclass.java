@@ -87,6 +87,7 @@ public class Helperclass {
             Query q = session.createQuery("from UsuariosNoAprobados as user where user.correo='" + correo + "'");
             user = ((List<UsuariosNoAprobados>) q.list()).get(0);
             user.setAprobado(true);
+            session.save(user);
              AppSingleton.getInstance().addMessage("Usuario fue aprobado correctamente");
             tx.commit();
            

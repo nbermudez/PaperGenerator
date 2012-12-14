@@ -47,17 +47,23 @@ public class registrarseBean {
     }
     public ArrayList<String> getUsersNoAprobados(){
         ArrayList<String> lol = new ArrayList<String>();
+        if(helper.getUsuariosNoAprobados()!=null){
         ArrayList<UsuariosNoAprobados> temp = helper.getUsuariosNoAprobados();
         for(int i=0;i<temp.size();i++){
             lol.add(temp.get(i).getCorreo());
         }
-        
+        return lol;
+        }
+        else{
+            lol.add("");
+            return lol;
+        }
       /*  lol.add("lol");
         lol.add("lol2");
         lol.add("lol3");
         lol.add("lol4");*/
         
-        return lol;
+        
     }
     
     public void aprobar(){

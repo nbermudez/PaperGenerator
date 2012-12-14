@@ -39,7 +39,15 @@
                     <p:menuitem  value="Formato de Conclusiones" actionListener="#{menuBean.configConclusiones()}" update="messages"/>
                     <p:menuitem  value="Formato de Agradecimiento" actionListener="#{menuBean.configAgradecimientos()}" update="messages"/>
                 </p:submenu>
-                <p:menuitem value="Generar"></p:menuitem>
+                <p:submenu label="PDF" >
+                 
+                    <p:menuitem >
+                          <p:commandButton value="Generar" action="#{pdf.generatePDF()}"  ajax="false" onclick="this.form.target='_blank'" 
+                            title="Genera el PDF de su paper"></p:commandButton> 
+                    </p:menuitem>
+                </p:submenu>
+                  
+                
             </p:menubar>
             <p:dashboard model="#{dashboard.model}" >
                 <p:panel id="titulo" header="Titulo" toggleable="true" collapsed="true">
@@ -53,6 +61,8 @@
                 </p:panel>
                 <p:panel id="intro" header="Introduccion" toggleable="true" collapsed="true">
                     <h:inputTextarea style="width: 400px; height: 300px"></h:inputTextarea>
+                 
+                    
                 </p:panel>
                 
             </p:dashboard>
