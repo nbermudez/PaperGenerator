@@ -88,8 +88,9 @@ public class Helperclass {
             user = ((List<UsuariosNoAprobados>) q.list()).get(0);
             user.setAprobado(true);
             session.save(user);
-             AppSingleton.getInstance().addMessage("Usuario fue aprobado correctamente");
+             
             tx.commit();
+            AppSingleton.getInstance().addMessage("Usuario fue aprobado correctamente");
            
         } catch (Exception ex) {
             ex.printStackTrace();

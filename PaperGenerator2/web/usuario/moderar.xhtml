@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Innovare. Revista de Ciencia y Tecnología.</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        <div id="page" >
+            
+            <div id="header">
+                <ui:insert name="header" >
+                    <ui:include src="/templates/common/commonHeader.xhtml" />
+                </ui:insert>
+            </div>
+            <br/>
+            <br/>
+            
+                <p:panel header="Moderar" style="height:450px;">
+                    <br/>
+                    <br/>
+                    <p:messages id="msgs"/>
+                    <h:outputText value=" Usuarios no aprobados: " />
+                    <h:selectOneListbox id="usersNoAprobados" value="#{registrar.correonoap}" rendered="#{registrar.usersNoAprobados.size()!=0}">
+                        <f:selectItems value="#{registrar.usersNoAprobados}"/>   
+                        
+                    </h:selectOneListbox>
+                    <h:outputText rendered="#{registrar.usersNoAprobados.size()==0}" value="No hay usuarios pendientes de aprobación"
+                                  style="font-weight: bold;" />
+                    <br/>
+                    <br/>
+                    <p:commandButton value="Aprobar" action="#{registrar.aprobar()}" update="msgs"  rendered="#{registrar.usersNoAprobados.size()!=0}"/>
+                </p:panel>
+            <br/>
+            <br/>
+            
+            <div id="footer">
+                <ui:insert name="footer">
+                    <ui:include src="/templates/common/commonFooter.xhtml" />
+                </ui:insert>
+            </div>
+        </div>
+        </h:form>
+    </h:body>
+</html>
+

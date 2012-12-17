@@ -63,6 +63,42 @@ public class AppSingletonTest {
         
     }*/
     
+    //Prueba que regrese una lista vacia al enviar un correo que no esta en la BD
+    @Test
+    public void testGetRolesNull() {
+        System.out.println("getRolesNull");
+        String correo = "correo@no.existe";
+        AppSingleton instance = AppSingleton.getInstance();
+        List expResult = new ArrayList(); //modificar
+        List result = instance.getRoles(correo);
+        assertEquals(expResult, result);        
+    }
+    
+    @Test
+    public void testGetRoles() {
+        System.out.println("getRoles");
+        String correo = "nestor.bermudez@unitec.edu";
+        AppSingleton instance = AppSingleton.getInstance();
+        RolesXUsuariosId rol1 = new RolesXUsuariosId(1,correo);
+        List expResult = new ArrayList();
+        expResult.add(rol1);
+        List result = instance.getRoles(correo);
+        assertEquals(expResult, result);        
+    }
+    
+    //Prueba que regresa los permisos segun el id del rol
+    @Test
+    public void testGetPermisos() {
+        System.out.println("getPermisos");
+        int idPermiso = 1;
+        
+        AppSingleton instance = AppSingleton.getInstance();
+        
+        List expResult = new ArrayList();
+        expResult.add(new PermisosXRolesId(1,1));
+        List result = instance.getPermisos(idPermiso);
+        assertEquals(expResult, result);        
+    }
     
 
     /**
@@ -423,6 +459,70 @@ public class AppSingletonTest {
         assertEquals(t, result); 
     }
   
+    //Prueba que regrese los formatos del Agradecimiento.
+    @Test
+    public void testAgradecimiento() {
+        System.out.println("Agradecimiento");
+        AppSingleton instance = AppSingleton.getInstance();
+        ArrayList expResult = new ArrayList();
+        expResult.add(new FormatoAgradecimiento(1, "abc", 50, 50, 2, true));
+        List result = instance.Agradecimientos();
+        FormatoAgradecimiento a1 = (FormatoAgradecimiento)expResult.get(0);
+        FormatoAgradecimiento a2 = (FormatoAgradecimiento)result.get(0);
+        assertEquals(a1.getIdAgradecimiento(), a2.getIdAgradecimiento());
+        assertEquals(a1.getMaximoPalabras(), a2.getMaximoPalabras());
+        assertEquals(a1.getMinimoPalabras(), a2.getMinimoPalabras());
+        assertEquals(a1.getMuestra(), a2.getMuestra());
+        assertEquals(a1.getColumnasSeccion(), a2.getColumnasSeccion());
+        assertEquals(a1.isOpcional(), a2.isOpcional());
+        
+        //assertEquals(expResult, result); 
+    }
+    
+    
+    
+    //Prueba que regrese los formatos del Anexo.
+    @Test
+    public void testAnexo() {
+        System.out.println("Anexo");
+        AppSingleton instance = AppSingleton.getInstance();
+        ArrayList expResult = new ArrayList();
+        expResult.add(new FormatoAnexo(1, "abc", 2, 50, 50, 50, 50));
+        List result = instance.Anexo();
+        
+        FormatoAnexo a1 = (FormatoAnexo)expResult.get(0);
+        FormatoAnexo a2 = (FormatoAnexo)result.get(0);
+        assertEquals(a1.getIdAnexo(), a2.getIdAnexo());
+        assertEquals(a1.getMaximoPalabras(), a2.getMaximoPalabras());
+        assertEquals(a1.getMinimoPalabras(), a2.getMinimoPalabras());
+        assertEquals(a1.getMuestra(), a2.getMuestra());
+        assertEquals(a1.getColumnasSeccion(), a2.getColumnasSeccion());
+        assertEquals(a1.getMaximoTotal(), a2.getMaximoTotal());
+        assertEquals(a1.getMinimoTotal(), a2.getMinimoTotal());
+        //assertEquals(expResult, result); 
+    }
+    
+    
+    //Prueba que regrese los formatos de las Palabras Claves.
+    @Test
+    public void testPalabrasClaves() {
+        System.out.println("PalabrasClaves");
+        AppSingleton instance = AppSingleton.getInstance();
+        ArrayList expResult = new ArrayList();
+        expResult.add(new FormatoPalabrasClave(1,"abc", 5, 5, true));
+        List result = instance.PalabrasClave();
+        
+        FormatoPalabrasClave a1 = (FormatoPalabrasClave)expResult.get(0);
+        FormatoPalabrasClave a2 = (FormatoPalabrasClave)result.get(0);
+        assertEquals(a1.getIdPalabrasClave(), a2.getIdPalabrasClave());
+        assertEquals(a1.getCantidadMaximo(), a2.getCantidadMaximo());
+        assertEquals(a1.getCantidadMinima(), a2.getCantidadMinima());
+        assertEquals(a1.getMuestra(), a2.getMuestra());
+        assertEquals(a1.isIndentacion(), a2.isIndentacion());
+        //assertEquals(expResult, result); 
+    }
+    
+    
 
     /**
      * Test of addMessage method, of class AppSingleton.
